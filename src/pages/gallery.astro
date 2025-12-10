@@ -1,0 +1,356 @@
+---
+const title = "Travel Gallery - Javad Huseynli";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="main-nav">
+			<div class="container">
+				<a href="/">Home</a>
+				<a href="/gallery" class="active">Gallery</a>
+				<a href="/blog">Blog</a>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="gallery-hero">
+			<div class="container">
+				<h1>Travel Gallery</h1>
+				<p class="subtitle">Exploring the World, One Destination at a Time</p>
+			</div>
+		</section>
+
+		<!-- Dubai Section -->
+		<section class="destination">
+			<div class="container">
+				<h2>
+					<span class="flag">🇦🇪</span>
+					Dubai, UAE
+				</h2>
+				<p class="destination-intro">
+					Experiencing the futuristic architecture and rich culture of Dubai, where tradition meets innovation.
+				</p>
+				<div class="photo-grid">
+					<div class="photo-item">
+						<img src="/images/dubai-1.jpg" alt="Dubai" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🏙️</div>
+							<p>Dubai Skyline</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/dubai-2.jpg" alt="Dubai" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🕌</div>
+							<p>Cultural Heritage</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/dubai-3.jpg" alt="Dubai" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🌆</div>
+							<p>City Lights</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/dubai-4.jpg" alt="Dubai" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🏗️</div>
+							<p>Modern Architecture</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Poland Section -->
+		<section class="destination alt">
+			<div class="container">
+				<h2>
+					<span class="flag">🇵🇱</span>
+					Poland
+				</h2>
+				<p class="destination-intro">
+					Academic exchange at NYSA University of Applied Sciences through Erasmus+ KA 171+ program.
+				</p>
+				<div class="photo-grid">
+					<div class="photo-item">
+						<img src="/images/poland-1.jpg" alt="Poland" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🏛️</div>
+							<p>Historic Architecture</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/poland-2.jpg" alt="Poland" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🎓</div>
+							<p>University Campus</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/poland-3.jpg" alt="Poland" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🌲</div>
+							<p>Natural Beauty</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/poland-4.jpg" alt="Poland" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🏰</div>
+							<p>Cultural Sites</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Uzbekistan Section -->
+		<section class="destination">
+			<div class="container">
+				<h2>
+					<span class="flag">🇺🇿</span>
+					Uzbekistan
+				</h2>
+				<p class="destination-intro">
+					Student exchange program at Tashkent University of Information Technologies, exploring Central Asia's tech hub.
+				</p>
+				<div class="photo-grid">
+					<div class="photo-item">
+						<img src="/images/uzbekistan-1.jpg" alt="Uzbekistan" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🕌</div>
+							<p>Ancient Architecture</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/uzbekistan-2.jpg" alt="Uzbekistan" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🎨</div>
+							<p>Silk Road Heritage</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/uzbekistan-3.jpg" alt="Uzbekistan" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🏫</div>
+							<p>Academic Experience</p>
+						</div>
+					</div>
+					<div class="photo-item">
+						<img src="/images/uzbekistan-4.jpg" alt="Uzbekistan" />
+						<div class="photo-placeholder">
+							<div class="placeholder-icon">🌟</div>
+							<p>Cultural Discovery</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background: #f5f5f5;
+				padding-top: 80px;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+
+			/* Navigation */
+			.main-nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(10px);
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				z-index: 1000;
+				padding: 1rem 0;
+			}
+
+			.main-nav .container {
+				display: flex;
+				gap: 2rem;
+				justify-content: center;
+			}
+
+			.main-nav a {
+				color: #333;
+				text-decoration: none;
+				font-weight: 600;
+				padding: 0.5rem 1.5rem;
+				border-radius: 50px;
+				transition: all 0.3s ease;
+			}
+
+			.main-nav a:hover,
+			.main-nav a.active {
+				background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+				color: white;
+			}
+
+			/* Gallery Hero */
+			.gallery-hero {
+				background: linear-gradient(135deg, #FF8C00 0%, #FFD700 50%, #4169E1 100%);
+				color: white;
+				padding: 4rem 0;
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			.gallery-hero h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+			}
+
+			.gallery-hero .subtitle {
+				font-size: 1.3rem;
+				opacity: 0.95;
+			}
+
+			/* Destination Sections */
+			.destination {
+				padding: 4rem 0;
+				background: white;
+			}
+
+			.destination.alt {
+				background: #f8f9fa;
+			}
+
+			.destination h2 {
+				font-size: 2.5rem;
+				color: #FF8C00;
+				margin-bottom: 1rem;
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+
+			.flag {
+				font-size: 3rem;
+			}
+
+			.destination-intro {
+				font-size: 1.1rem;
+				color: #666;
+				margin-bottom: 2rem;
+				max-width: 800px;
+			}
+
+			/* Photo Grid */
+			.photo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			.photo-item {
+				position: relative;
+				border-radius: 15px;
+				overflow: hidden;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				background: white;
+			}
+
+			.photo-item:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+			}
+
+			.photo-item img {
+				width: 100%;
+				height: 300px;
+				object-fit: cover;
+				display: none;
+			}
+
+			.photo-item img[src]:not([src=""]) {
+				display: block;
+			}
+
+			.photo-placeholder {
+				width: 100%;
+				height: 300px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
+				color: white;
+			}
+
+			.photo-item img[src]:not([src=""]) + .photo-placeholder {
+				display: none;
+			}
+
+			.placeholder-icon {
+				font-size: 4rem;
+				margin-bottom: 1rem;
+				opacity: 0.9;
+			}
+
+			.photo-placeholder p {
+				font-size: 1.2rem;
+				font-weight: 600;
+			}
+
+			@media (max-width: 768px) {
+				.gallery-hero h1 {
+					font-size: 2rem;
+				}
+
+				.gallery-hero .subtitle {
+					font-size: 1rem;
+				}
+
+				.destination h2 {
+					font-size: 1.8rem;
+				}
+
+				.photo-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.container {
+					padding: 0 1rem;
+				}
+
+				.main-nav .container {
+					gap: 1rem;
+				}
+
+				.main-nav a {
+					padding: 0.5rem 1rem;
+					font-size: 0.9rem;
+				}
+			}
+		</style>
+	</body>
+</html>

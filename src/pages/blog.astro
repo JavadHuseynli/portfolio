@@ -1,0 +1,334 @@
+---
+const title = "Blog - Javad Huseynli";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="main-nav">
+			<div class="container">
+				<a href="/">Home</a>
+				<a href="/gallery">Gallery</a>
+				<a href="/blog" class="active">Blog</a>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="blog-hero">
+			<div class="container">
+				<h1>Blog</h1>
+				<p class="subtitle">Thoughts on Technology, Development, and Innovation</p>
+			</div>
+		</section>
+
+		<!-- Blog Posts Section -->
+		<section class="blog-content">
+			<div class="container">
+				<div class="blog-grid">
+					<!-- Blog Post Template - You can add your posts here -->
+					<article class="blog-post">
+						<div class="post-header">
+							<span class="post-date">Coming Soon</span>
+							<span class="post-category">Tech</span>
+						</div>
+						<h2>Welcome to My Blog</h2>
+						<p class="post-excerpt">
+							This is where I'll be sharing my insights on software development, artificial intelligence,
+							and my experiences in the tech industry. Stay tuned for upcoming articles!
+						</p>
+						<div class="post-tags">
+							<span class="tag">#Development</span>
+							<span class="tag">#AI</span>
+							<span class="tag">#Technology</span>
+						</div>
+					</article>
+
+					<!-- Placeholder for future posts -->
+					<article class="blog-post placeholder">
+						<div class="post-header">
+							<span class="post-date">TBD</span>
+							<span class="post-category">Tutorial</span>
+						</div>
+						<h2>Future Post: Full Stack Development Best Practices</h2>
+						<p class="post-excerpt">
+							Sharing my experiences and lessons learned from building scalable applications with Python,
+							Django, and modern JavaScript frameworks.
+						</p>
+						<div class="post-tags">
+							<span class="tag">#Python</span>
+							<span class="tag">#Django</span>
+							<span class="tag">#JavaScript</span>
+						</div>
+					</article>
+
+					<article class="blog-post placeholder">
+						<div class="post-header">
+							<span class="post-date">TBD</span>
+							<span class="post-category">Experience</span>
+						</div>
+						<h2>Future Post: My Journey in Academia and Industry</h2>
+						<p class="post-excerpt">
+							Reflecting on my experiences as both a teacher and developer, and how these roles
+							complement each other in the ever-evolving tech landscape.
+						</p>
+						<div class="post-tags">
+							<span class="tag">#Career</span>
+							<span class="tag">#Teaching</span>
+							<span class="tag">#Development</span>
+						</div>
+					</article>
+
+					<article class="blog-post placeholder">
+						<div class="post-header">
+							<span class="post-date">TBD</span>
+							<span class="post-category">Research</span>
+						</div>
+						<h2>Future Post: Insights from International Exchange Programs</h2>
+						<p class="post-excerpt">
+							Sharing experiences and learnings from academic exchanges in Poland and Uzbekistan,
+							and how international collaboration shapes technology education.
+						</p>
+						<div class="post-tags">
+							<span class="tag">#Erasmus</span>
+							<span class="tag">#Education</span>
+							<span class="tag">#International</span>
+						</div>
+					</article>
+				</div>
+
+				<!-- Blog Instructions -->
+				<div class="blog-info">
+					<h3>📝 Add Your Blog Posts</h3>
+					<p>
+						To add new blog posts, edit the <code>src/pages/blog.astro</code> file and add new
+						<code>&lt;article&gt;</code> elements following the template structure above.
+					</p>
+					<p>
+						You can also create individual blog post pages in the <code>src/pages/blog/</code>
+						directory for longer articles.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background: #f5f5f5;
+				padding-top: 80px;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+
+			/* Navigation */
+			.main-nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(10px);
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				z-index: 1000;
+				padding: 1rem 0;
+			}
+
+			.main-nav .container {
+				display: flex;
+				gap: 2rem;
+				justify-content: center;
+			}
+
+			.main-nav a {
+				color: #333;
+				text-decoration: none;
+				font-weight: 600;
+				padding: 0.5rem 1.5rem;
+				border-radius: 50px;
+				transition: all 0.3s ease;
+			}
+
+			.main-nav a:hover,
+			.main-nav a.active {
+				background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+				color: white;
+			}
+
+			/* Blog Hero */
+			.blog-hero {
+				background: linear-gradient(135deg, #4169E1 0%, #FF8C00 100%);
+				color: white;
+				padding: 4rem 0;
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			.blog-hero h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+			}
+
+			.blog-hero .subtitle {
+				font-size: 1.3rem;
+				opacity: 0.95;
+			}
+
+			/* Blog Content */
+			.blog-content {
+				padding: 2rem 0 4rem;
+			}
+
+			.blog-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+				gap: 2rem;
+				margin-bottom: 4rem;
+			}
+
+			.blog-post {
+				background: white;
+				border-radius: 15px;
+				padding: 2rem;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				border-left: 4px solid #FF8C00;
+			}
+
+			.blog-post:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+			}
+
+			.blog-post.placeholder {
+				opacity: 0.7;
+				border-left-color: #FFD700;
+			}
+
+			.post-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 1rem;
+			}
+
+			.post-date {
+				color: #666;
+				font-size: 0.9rem;
+			}
+
+			.post-category {
+				background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+				color: white;
+				padding: 0.3rem 0.8rem;
+				border-radius: 20px;
+				font-size: 0.85rem;
+				font-weight: 600;
+			}
+
+			.blog-post h2 {
+				color: #333;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				line-height: 1.4;
+			}
+
+			.post-excerpt {
+				color: #666;
+				margin-bottom: 1.5rem;
+				line-height: 1.7;
+			}
+
+			.post-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+
+			.tag {
+				background: #f0f0f0;
+				color: #4169E1;
+				padding: 0.3rem 0.8rem;
+				border-radius: 15px;
+				font-size: 0.85rem;
+				font-weight: 500;
+			}
+
+			/* Blog Info */
+			.blog-info {
+				background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
+				color: white;
+				padding: 2rem;
+				border-radius: 15px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			}
+
+			.blog-info h3 {
+				margin-bottom: 1rem;
+				font-size: 1.5rem;
+			}
+
+			.blog-info p {
+				margin-bottom: 1rem;
+				line-height: 1.7;
+			}
+
+			.blog-info code {
+				background: rgba(255,255,255,0.2);
+				padding: 0.2rem 0.5rem;
+				border-radius: 5px;
+				font-family: 'Courier New', monospace;
+			}
+
+			@media (max-width: 768px) {
+				.blog-hero h1 {
+					font-size: 2rem;
+				}
+
+				.blog-hero .subtitle {
+					font-size: 1rem;
+				}
+
+				.blog-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.container {
+					padding: 0 1rem;
+				}
+
+				.main-nav .container {
+					gap: 1rem;
+				}
+
+				.main-nav a {
+					padding: 0.5rem 1rem;
+					font-size: 0.9rem;
+				}
+
+				.blog-post h2 {
+					font-size: 1.3rem;
+				}
+			}
+		</style>
+	</body>
+</html>

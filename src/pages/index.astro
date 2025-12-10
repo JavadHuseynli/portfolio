@@ -1,16 +1,2003 @@
 ---
-
+import '../styles/global.css';
+const title = "Javad Huseynli - Full Stack Developer Portfolio";
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Full Stack Developer specializing in Python, Django, JavaScript, and mobile development">
+	<meta name="csrf-token" content="generated-csrf-token">
+	<title>{title}</title>
+</head>
+<body class="bg-[#E8F5E9] font-sans">
+	<!-- Navigation -->
+	<nav class="bg-[#E8F5E9] py-4 sticky top-0 z-50 shadow-sm">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center">
+				<div class="text-2xl font-bold">
+					<span class="text-black">My</span><span class="text-[#00C853]">Portfolio</span>
+				</div>
+				<div class="hidden md:flex space-x-8 items-center overflow-x-auto">
+					<a href="#about" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap" data-i18n="nav.about">About</a>
+					<a href="#projects" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap" data-i18n="nav.projects">Projects</a>
+					<a href="#gallery" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap" data-i18n="nav.gallery">Gallery</a>
+					<a href="#certificates" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap" data-i18n="nav.certificates">Certificates</a>
+					<a href="#publications" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap" data-i18n="nav.publications">Publications</a>
+					<a href="#contact" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap" data-i18n="nav.contact">Contact</a>
+				</div>
+				<!-- Language Selector -->
+				<div class="relative hidden md:block">
+					<button onclick="toggleLanguageMenu()" class="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+						</svg>
+						<span id="currentLang">AZ</span>
+					</button>
+					<div id="languageMenu" class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg z-50 border-2 border-green-500">
+						<a onclick="changeLanguage('az')" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">🇦🇿 AZ</a>
+						<a onclick="changeLanguage('tr')" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">🇹🇷 TR</a>
+						<a onclick="changeLanguage('ru')" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">🇷🇺 RU</a>
+						<a onclick="changeLanguage('en')" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">🇬🇧 EN</a>
+						<a onclick="changeLanguage('uz')" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">🇺🇿 UZ</a>					</div>
+				</div>
+				<button class="md:hidden" onclick="toggleMobileMenu()">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</button>
+			</div>
+			<!-- Mobile Menu -->
+			<div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+				<div class="flex flex-col space-y-3">
+					<a href="#about" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()" data-i18n="nav.about">About</a>
+					<a href="#projects" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()" data-i18n="nav.projects">Projects</a>
+					<a href="#gallery" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()" data-i18n="nav.gallery">Gallery</a>
+					<a href="#certificates" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()" data-i18n="nav.certificates">Certificates</a>
+					<a href="#publications" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()" data-i18n="nav.publications">Publications</a>
+					<a href="#contact" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()" data-i18n="nav.contact">Contact</a>
+					<div class="pt-2 border-t border-gray-200 mt-2">
+						<p class="text-gray-500 text-sm mb-2" data-i18n="nav.language">Language</p>
+						<div class="flex gap-2">
+							<button onclick="changeLanguage('az')" class="px-3 py-1 bg-gray-100 rounded hover:bg-gray-200">🇦🇿 AZ</button>
+							<button onclick="changeLanguage('tr')" class="px-3 py-1 bg-gray-100 rounded hover:bg-gray-200">🇹🇷 TR</button>
+							<button onclick="changeLanguage('ru')" class="px-3 py-1 bg-gray-100 rounded hover:bg-gray-200">🇷🇺 RU</button>
+							<button onclick="changeLanguage('en')" class="px-3 py-1 bg-gray-100 rounded hover:bg-gray-200">🇬🇧 EN</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="bg-[#E8F5E9] py-12 relative overflow-hidden">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div class="space-y-4 order-2 md:order-1">
+					<h1 class="text-4xl md:text-5xl font-bold leading-tight">
+						<span data-i18n="hero.greeting">Hi, I'm</span><br>
+						<span class="text-[#00C853]">Javad Huseynli</span>
+					</h1>
+					<div class="text-2xl md:text-3xl font-semibold text-gray-700">
+						<span class="inline-block animate-pulse" data-i18n="hero.iam">I am </span>
+						<span class="text-[#00C853] typed-text"></span>
+					</div>
+					<p class="text-gray-600 text-base" data-i18n="hero.description">
+						Passionate Full Stack Developer specializing in backend development,
+						web technologies, and cross-platform solutions. Building scalable
+						applications with modern frameworks.
+					</p>
+					<div class="flex flex-wrap gap-3">
+						<a href="tel:+994504122160" class="px-6 py-2 bg-[#00C853] text-white rounded-md hover:bg-[#00B248] transition text-base font-semibold flex items-center gap-2">
+							<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+							</svg>
+							<span data-i18n="hero.call">Call Me</span>
+						</a>
+						<a href="https://wa.me/994504122160" target="_blank" class="px-6 py-2 bg-[#25D366] text-white rounded-md hover:bg-[#20BA5A] transition text-base font-semibold flex items-center gap-2">
+							<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+							</svg>
+							<span data-i18n="hero.whatsapp">WhatsApp</span>
+						</a>
+					</div>
+					<div class="flex items-center space-x-4 pt-2">
+						<a href="https://linkedin.com/in/javadhuseynli" target="_blank" class="text-gray-600 hover:text-[#00C853] transition">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+							</svg>
+						</a>
+						<a href="https://github.com/javadhuseynli" target="_blank" class="text-gray-600 hover:text-[#00C853] transition">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
+							</svg>
+						</a>
+						<a href="https://facebook.com/javadhuseynli" target="_blank" class="text-gray-600 hover:text-[#00C853] transition">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+							</svg>
+						</a>
+						<a href="https://instagram.com/javadhuseynli" target="_blank" class="text-gray-600 hover:text-[#00C853] transition">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="relative order-1 md:order-2 flex justify-center">
+					<img src="/images/img3.png" alt="Javad Huseynli" class="w-full h-full object-cover object-center" />
+				</div>
+			</div>
+		</div>
+
+		<!-- Animated Skills Banner -->
+		<div class="bg-white py-8 border-t border-gray-200">
+			<div class="overflow-hidden whitespace-nowrap">
+				<div class="inline-flex animate-scroll items-center">
+					<!-- SQL -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#00758F">
+								<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 5h3v6h-3V5zm0 8h3v6h-3v-6z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">SQL</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">100%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- Python -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#3776AB">
+								<path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">Python</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- JavaScript -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#F7DF1E">
+								<path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">JavaScript</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- Java & Kotlin -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#007396">
+								<path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">Java & Kotlin</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- PHP -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#777BB4">
+								<path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.551.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.652-.107-.116-.336-.174-.687-.174h-.997l-.679 3.625H9.491l1.23-6.326h1.385l-.51 2.626h.917c.67 0 1.144.061 1.42.184.277.123.466.286.567.49.101.204.123.45.065.739l-.576 2.287h-1.385zm4.988-2.977c.121.588.039 1.044-.25 1.368-.289.324-.775.486-1.458.486h-.932l-.453 2.326h-1.379l1.23-6.326h1.379l-.51 2.626h.886c.391 0 .67-.076.837-.227.167-.152.291-.411.373-.779.082-.368.04-.627-.124-.777-.165-.15-.469-.225-.913-.225h-1.767l.327-1.681h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">PHP</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">60%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- Assembly -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#525252">
+								<path d="M0 12v12h24V0H0v12zm19.5-2h-3v-1h3v1zm-5 0h-8v-1h8v1zm-10 0h-2v-1h2v1zm12 3h-3v-1h3v1zm-5 0h-8v-1h8v1zm-10 0h-2v-1h2v1zm12 3h-3v-1h3v1zm-5 0h-8v-1h8v1zm-10 0h-2v-1h2v1z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">Assembly</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">60%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- Django -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#092E20">
+								<path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.001 2.65-6.6 6.753-6.6.637 0 1.121.051 1.707.204V0zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.364 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.127V9.143zM21.314 6.06v9.097c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.529 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39V.021z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">Django</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- Astro.js -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#FF5D01">
+								<path d="M16.074 16.86c-.72.616-2.157.769-3.567.769-1.258 0-2.465-.153-3.124-.769-.659-.615-.805-1.231-.805-2.462 0-1.232.146-1.848.805-2.463.66-.616 1.866-.769 3.124-.769 1.41 0 2.847.153 3.567.769.719.615.805 1.231.805 2.463 0 1.231-.086 1.847-.805 2.462zM12.507 0C7.42 0 2.905 1.666 2.905 5.054v1.026c0 .306.186.522.395.606l1.71.813c.152.074.324.074.476 0l1.471-.702c.168-.079.294-.236.294-.414v-.698c0-1.173.832-2.05 1.977-2.299.415-.09.893-.135 1.279-.135 2.516 0 5.002.78 5.002 2.434v1.004c0 .207.128.39.32.472l3.151 1.341c.168.071.36.055.513-.042.154-.097.246-.267.246-.449V5.054C19.739 1.666 17.594 0 12.507 0zM21 16c0 4.418-3.582 8-8 8s-8-3.582-8-8c0-3.866 2.736-7.098 6.371-7.849.456-.094.936-.148 1.441-.148 4.418 0 8 3.582 8 8zm-8-5.5c-3.033 0-5.5 2.467-5.5 5.5s2.467 5.5 5.5 5.5 5.5-2.467 5.5-5.5-2.467-5.5-5.5-5.5z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">Astro.js</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+
+					<!-- Android Dev -->
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#3DDC84">
+								<path d="M17.523 15.341c-.821 0-1.488-.667-1.488-1.488s.667-1.488 1.488-1.488c.821 0 1.488.667 1.488 1.488s-.667 1.488-1.488 1.488zm-11.046 0c-.821 0-1.488-.667-1.488-1.488s.667-1.488 1.488-1.488c.821 0 1.488.667 1.488 1.488s-.667 1.488-1.488 1.488zm15.523-7.741l1.363-2.362c.083-.143.033-.327-.11-.41-.143-.083-.327-.033-.41.11l-1.378 2.386c-1.222-.692-2.605-1.092-4.089-1.092-1.484 0-2.867.4-4.089 1.092L11.909 5.938c-.083-.143-.267-.193-.41-.11-.143.083-.193.267-.11.41l1.363 2.362C9.33 10.193 7.5 13.187 7.5 16.5v.5h17v-.5c0-3.313-1.83-6.307-5.252-7.9zM1.5 16.5h3v7.5h-3v-7.5zm18 0h3v7.5h-3v-7.5z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">Android Dev</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+
+					<!-- Repeat for smooth infinite scroll -->
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#00758F">
+								<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.5 5h3v6h-3V5zm0 8h3v6h-3v-6z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">SQL</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">100%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#3776AB">
+								<path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">Python</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+					<span class="text-2xl text-gray-400 mx-4">•</span>
+					<div class="inline-flex flex-col items-start mx-6">
+						<div class="flex items-center mb-1">
+							<svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="#F7DF1E">
+								<path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+							</svg>
+							<span class="text-2xl font-bold text-gray-800">JavaScript</span>
+						</div>
+						<div class="flex items-center gap-1 ml-10">
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-green-500 rounded-full"></div>
+							<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+							<span class="text-sm font-bold text-green-600 ml-1">80%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Me Section -->
+	<section id="about" class="bg-white py-20">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<p class="text-[#00C853] font-semibold mb-2" data-i18n="about.sectionTitle">ABOUT ME</p>
+				<h2 class="text-4xl font-bold mb-4" data-i18n="about.title">Full Stack Developer & Educator</h2>
+			</div>
+			<div class="grid md:grid-cols-3 gap-8 items-center">
+				<!-- Profile Image -->
+				<div class="flex justify-center">
+					<div class="relative">
+						<img src="/images/img4.jpeg" alt="Javad Huseynli Profile" class="w-full max-w-sm h-auto object-cover object-center rounded-2xl shadow-2xl border-4 border-[#00C853]" />
+						<div class="absolute -bottom-4 -right-4 bg-[#00C853] text-white px-4 py-2 rounded-full shadow-lg">
+							<p class="font-bold text-sm" data-i18n="about.experience">6+ Years</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- About Text -->
+				<div class="md:col-span-2 text-gray-700 text-base leading-relaxed space-y-4">
+					<p data-i18n="about.paragraph1">
+						I am a passionate <strong>Full Stack Developer</strong> with <strong>6+ years of experience</strong> specializing in backend development,
+						web technologies, and cross-platform solutions. My expertise spans across <strong>Python, Django, JavaScript,
+						Java, Kotlin</strong>, and modern frameworks like <strong>Astro.js</strong>.
+					</p>
+					<p data-i18n="about.paragraph2">
+						Currently serving as an <strong>IT Department Teacher at Baku Business University</strong> (2022-Present), I combine practical
+						industry experience with academic excellence. I've worked as a <strong>Java Backend Developer at F Telecom</strong> (2017-2018)
+						and contributed to various projects at <strong>Avrasiya University</strong>.
+					</p>
+					<p data-i18n="about.paragraph3">
+						My international experience includes academic exchanges through <strong>Erasmus+ KA 171+</strong> at NYSA University of
+						Applied Sciences in Poland, and a teaching mobility program at Tashkent University of Information Technologies.
+						These experiences have enriched my understanding of global software development practices.
+					</p>
+					<p data-i18n="about.paragraph4">
+						I am committed to building <strong>scalable, secure applications</strong> while mentoring the next generation of developers.
+						My research is indexed in <strong>Scopus</strong>, and I hold certifications from <strong>Oracle, Meta</strong>, and leading tech institutions.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Work Experience Timeline -->
+	<section id="experience" class="bg-[#E8F5E9] py-20">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<p class="text-[#00C853] font-semibold mb-2" data-i18n="experience.sectionTitle">CAREER JOURNEY</p>
+				<h2 class="text-4xl font-bold mb-4" data-i18n="experience.title">Work Experience</h2>
+			</div>
+			<div class="max-w-4xl mx-auto">
+				<div class="relative border-l-4 border-[#00C853] pl-8 space-y-12">
+					<!-- Timeline Item 1 -->
+					<div class="relative">
+						<div class="absolute -left-10 w-6 h-6 bg-[#00C853] rounded-full border-4 border-white"></div>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<span class="text-[#00C853] font-bold text-sm" data-i18n="experience.avrasiya.date">February 2025 - July 2025</span>
+							<h3 class="text-2xl font-bold mt-2 mb-3" data-i18n="experience.avrasiya.position">Avrasiya University</h3>
+							<p class="text-gray-600 leading-relaxed" data-i18n="experience.avrasiya.description">
+								Contributing to academic research and development projects, focusing on advanced software engineering practices
+								and emerging technologies. Collaborating with faculty and students on innovative tech solutions.
+							</p>
+						</div>
+					</div>
+
+					<!-- Timeline Item 2 -->
+					<div class="relative">
+						<div class="absolute -left-10 w-6 h-6 bg-[#00C853] rounded-full border-4 border-white"></div>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<span class="text-[#00C853] font-bold text-sm" data-i18n="experience.odlar.date">2022 - Present</span>
+							<h3 class="text-2xl font-bold mt-2 mb-1" data-i18n="experience.odlar.position">IT Department Teacher</h3>
+							<p class="text-gray-500 mb-3" data-i18n="experience.odlar.company">Baku Business University</p>
+							<p class="text-gray-600 leading-relaxed" data-i18n="experience.odlar.description">
+								Instructing students in software development, programming fundamentals, and modern development practices.
+								Developing curriculum for Python, Java, web development courses and mentoring the next generation of
+								software engineers. Successfully guided numerous students to career placements in tech industry.
+							</p>
+						</div>
+					</div>
+
+					<!-- Timeline Item 3 -->
+					<div class="relative">
+						<div class="absolute -left-10 w-6 h-6 bg-[#00C853] rounded-full border-4 border-white"></div>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<span class="text-[#00C853] font-bold text-sm" data-i18n="experience.odlaryurdu.date">2022 - 2025</span>
+							<h3 class="text-2xl font-bold mt-2 mb-1" data-i18n="experience.odlaryurdu.position">IT Department Teacher</h3>
+							<p class="text-gray-500 mb-3" data-i18n="experience.odlaryurdu.company">Odlar Yurdu University</p>
+							<p class="text-gray-600 leading-relaxed" data-i18n="experience.odlaryurdu.description">
+								Teaching programming courses and computer science fundamentals to undergraduate students. Developed educational materials and practical lab exercises for software development courses. Mentored students in academic projects and research activities.
+							</p>
+						</div>
+					</div>
+
+					<!-- Timeline Item 4 -->
+					<div class="relative">
+						<div class="absolute -left-10 w-6 h-6 bg-[#00C853] rounded-full border-4 border-white"></div>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<span class="text-[#00C853] font-bold text-sm" data-i18n="experience.ftelecom.date">2017 - 2018</span>
+							<h3 class="text-2xl font-bold mt-2 mb-1" data-i18n="experience.ftelecom.position">Java Backend Developer</h3>
+							<p class="text-gray-500 mb-3" data-i18n="experience.ftelecom.company">F Telecom</p>
+							<p class="text-gray-600 leading-relaxed" data-i18n="experience.ftelecom.description">
+								Developed and maintained backend services for telecommunications systems using Java and Spring Framework.
+								Worked on scalable server-side applications, RESTful API development, and database optimization.
+								Contributed to improving system performance and reliability for telecom operations.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Research Publications Section -->
+	<section id="publications" class="bg-white py-20">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<p class="text-[#00C853] font-semibold mb-2" data-i18n="publications.sectionTitle">RESEARCH & PUBLICATIONS</p>
+				<h2 class="text-4xl font-bold mb-4" data-i18n="publications.title">Academic Contributions</h2>
+			</div>
+			<div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+				<!-- Publication 1 -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853]">
+					<div class="flex items-start gap-4">
+						<div class="flex-1">
+							<h3 class="font-bold text-lg mb-2">The Role of Artificial Intelligence in Enhancing and Securing Smart Education Systems</h3>
+							<p class="text-gray-600 text-sm mb-3">
+								Introducing the "Cognitive-Defensive AI Nexus" framework for secure smart education systems with 94.7% predictive accuracy and 78% reduced attack surface.
+							</p>
+							<div class="flex flex-wrap gap-2 mb-3">
+								<span class="text-xs bg-white px-2 py-1 rounded">Zero Trust Architecture</span>
+								<span class="text-xs bg-white px-2 py-1 rounded">Machine Learning</span>
+								<span class="text-xs bg-white px-2 py-1 rounded">Cybersecurity</span>
+							</div>
+							<p class="text-xs text-gray-500 mb-2">
+								<strong>Author:</strong> Javad Huseynli, PhD<br>
+								<strong>Affiliation:</strong> Baku Business University<br>
+								<strong>Published in:</strong> Artificial Intelligence – Innovation in Education in a World of Constant Change
+							</p>
+							<a href="https://doi.org/10.52257/9786063728358" target="_blank" class="text-[#00C853] text-sm font-semibold hover:underline flex items-center gap-1">
+								<span>DOI: 10.52257/9786063728358</span>
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Publication 2 - Placeholder for second thesis -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853]">
+					<div class="flex items-start gap-4">
+						<div class="flex-1">
+							<h3 class="font-bold text-lg mb-2">Second Research Publication</h3>
+							<p class="text-gray-600 text-sm mb-3">
+								Additional academic research published in Scopus/Springer indexed journals. Details to be updated.
+							</p>
+							<div class="flex flex-wrap gap-2 mb-3">
+								<span class="text-xs bg-white px-2 py-1 rounded">AI</span>
+								<span class="text-xs bg-white px-2 py-1 rounded">Education</span>
+								<span class="text-xs bg-white px-2 py-1 rounded">Technology</span>
+							</div>
+							<p class="text-xs text-gray-500 mb-2">
+								<strong>Author:</strong> Javad Huseynli<br>
+								<strong>Published in:</strong> Scopus/Springer Indexed Journal
+							</p>
+							<p class="text-[#00C853] text-sm font-semibold">Publication details available soon</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Gallery Modal -->
+	<div id="galleryModal" class="hidden fixed inset-0 bg-black/90 z-50 overflow-y-auto">
+		<div class="min-h-screen px-4 py-8 flex items-center justify-center">
+			<div class="w-full max-w-6xl">
+				<!-- Header -->
+				<div class="flex justify-between items-center mb-6">
+					<div>
+						<h2 id="galleryTitle" class="text-white text-2xl md:text-3xl font-bold"></h2>
+						<p id="imageCounter" class="text-white/70 text-sm mt-1"></p>
+					</div>
+					<button onclick="closeGallery()" class="text-white hover:text-[#00C853] transition">
+						<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+						</svg>
+					</button>
+				</div>
+
+				<!-- Image Container -->
+				<div class="relative">
+					<!-- Previous Button -->
+					<button onclick="prevImage()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-[#00C853] hover:bg-[#00B248] text-white w-12 h-12 rounded-full flex items-center justify-center transition z-10 shadow-xl">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+						</svg>
+					</button>
+
+					<!-- Image -->
+					<div id="galleryImages">
+						<!-- Image will be loaded here dynamically -->
+					</div>
+
+					<!-- Next Button -->
+					<button onclick="nextImage()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-[#00C853] hover:bg-[#00B248] text-white w-12 h-12 rounded-full flex items-center justify-center transition z-10 shadow-xl">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Travel Gallery Section -->
+	<section id="gallery" class="bg-[#E8F5E9] py-20">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<p class="text-[#00C853] font-semibold mb-2" data-i18n="gallery.sectionTitle">TRAVEL GALLERY</p>
+				<h2 class="text-4xl font-bold mb-4" data-i18n="gallery.title">My Global Adventures</h2>
+			</div>
+
+			<!-- Country Tabs -->
+			<div class="flex flex-wrap justify-center gap-4 mb-8">
+				<button onclick="showCountryGallery('dubai')" id="tab-dubai" class="country-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-[#00C853] text-white">
+					🇦🇪 Dubai
+				</button>
+				<button onclick="showCountryGallery('poland')" id="tab-poland" class="country-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-[#E8F5E9] text-gray-700 hover:bg-[#00C853] hover:text-white">
+					🇵🇱 Poland
+				</button>
+				<button onclick="showCountryGallery('uzbekistan')" id="tab-uzbekistan" class="country-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-[#E8F5E9] text-gray-700 hover:bg-[#00C853] hover:text-white">
+					🇺🇿 Uzbekistan
+				</button>
+				<button onclick="showCountryGallery('georgia')" id="tab-georgia" class="country-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-[#E8F5E9] text-gray-700 hover:bg-[#00C853] hover:text-white">
+					🇬🇪 Georgia
+				</button>
+				<button onclick="showCountryGallery('turkey')" id="tab-turkey" class="country-tab px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-[#E8F5E9] text-gray-700 hover:bg-[#00C853] hover:text-white">
+					🇹🇷 Turkey
+				</button>
+			</div>
+
+			<!-- Gallery Content -->
+			<div id="gallery-content" class="mb-8">
+				<!-- Content will be loaded here -->
+			</div>
+
+			<!-- Image Grid -->
+			<div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+				<!-- Images will be loaded here -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Portfolio Section -->
+	<section id="projects" class="bg-white py-20">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<p class="text-[#00C853] font-semibold mb-2" data-i18n="projects.sectionTitle">MY PROJECTS</p>
+				<h2 class="text-4xl font-bold mb-4" data-i18n="projects.title">GitHub Portfolio</h2>
+				<a href="https://github.com/javadhuseynli" target="_blank" class="text-[#00C853] hover:underline flex items-center justify-center gap-2 mt-4">
+					<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+						<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
+					</svg>
+					<span data-i18n="projects.viewGithub">View Full GitHub Profile</span>
+				</a>
+			</div>
+			<div id="githubRepos" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+				<!-- Loading state -->
+				<div class="col-span-full text-center py-8">
+					<div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#00C853]"></div>
+					<p class="text-gray-600 mt-4" data-i18n="projects.loading">Loading projects from GitHub...</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Original portfolio items section removed, now using dynamic GitHub repos -->
+	<div class="hidden">
+		<div class="grid md:grid-cols-2 gap-8 mt-12">
+				<!-- Portfolio Item 1 -->
+				<div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-xl transition group">
+					<div class="h-64 bg-gradient-to-br from-[#00C853] to-[#00B248] relative overflow-hidden">
+						<img src="/images/portfolio-1.png" alt="Digital Marketing Agency" class="w-full h-full object-cover opacity-90" />
+					</div>
+					<div class="p-6">
+						<h3 class="text-2xl font-bold mb-2">Digital Marketing Agency Website</h3>
+						<p class="text-gray-600">
+							This is a sample for a client who want to achieve their goals and reach their level...
+						</p>
+					</div>
+				</div>
+
+				<!-- Portfolio Item 2 -->
+				<div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-xl transition group">
+					<div class="h-64 bg-gradient-to-br from-[#1E1E1E] to-[#3E3E3E] relative overflow-hidden">
+						<img src="/images/portfolio-2.png" alt="Digital Marketing" class="w-full h-full object-cover opacity-90" />
+					</div>
+					<div class="p-6">
+						<h3 class="text-2xl font-bold mb-2">Digital Marketing Agency Website</h3>
+						<p class="text-gray-600">
+							This is a sample for a client who want to achieve their goals and reach their level...
+						</p>
+					</div>
+				</div>
+
+				<!-- Portfolio Item 3 -->
+				<div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-xl transition group">
+					<div class="h-64 bg-gradient-to-br from-gray-200 to-gray-300 relative overflow-hidden">
+						<img src="/images/portfolio-3.png" alt="E-commerce" class="w-full h-full object-cover opacity-90" />
+					</div>
+					<div class="p-6">
+						<h3 class="text-2xl font-bold mb-2">Digital Marketing Agency Website</h3>
+						<p class="text-gray-600">
+							This is a sample for a client who want to achieve their goals and reach their level...
+						</p>
+					</div>
+				</div>
+
+				<!-- Portfolio Item 4 -->
+				<div class="bg-gray-100 rounded-lg overflow-hidden hover:shadow-xl transition group">
+					<div class="h-64 bg-gradient-to-br from-[#2C5F2D] to-[#00C853] relative overflow-hidden">
+						<img src="/images/portfolio-4.png" alt="Digital Marketing" class="w-full h-full object-cover opacity-90" />
+					</div>
+					<div class="p-6">
+						<h3 class="text-2xl font-bold mb-2">Digital Marketing Agency Website</h3>
+						<p class="text-gray-600">
+							This is a sample for a client who want to achieve their goals and reach their level...
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Certificates Section -->
+	<section id="certificates" class="bg-white py-20">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<p class="text-[#00C853] font-semibold mb-2" data-i18n="certificates.sectionTitle">PROFESSIONAL DEVELOPMENT</p>
+				<h2 class="text-4xl font-bold mb-4" data-i18n="certificates.title">Certifications & Achievements</h2>
+			</div>
+			<div class="grid md:grid-cols-3 gap-6">
+				<!-- Oracle AI -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('oracle-ai')">
+					<h3 class="font-bold text-lg mb-2">Oracle Cloud Infrastructure AI Foundations</h3>
+					<p class="text-gray-600 text-sm mb-3">Oracle</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Oracle Data -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('oracle-data')">
+					<h3 class="font-bold text-lg mb-2">Oracle Data Management Infrastructure</h3>
+					<p class="text-gray-600 text-sm mb-3">Oracle</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Java -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('java-spring')">
+					<h3 class="font-bold text-lg mb-2">Java & Java Spring</h3>
+					<p class="text-gray-600 text-sm mb-3">Network Training Center</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Red Team -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('red-team')">
+					<h3 class="font-bold text-lg mb-2">Red Team Security</h3>
+					<p class="text-gray-600 text-sm mb-3">Xploit Academy</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Edulamp -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('edulamp')">
+					<h3 class="font-bold text-lg mb-2">Electronic Education Platform</h3>
+					<p class="text-gray-600 text-sm mb-3">StartSchool & Subuh Hub (Edulamp)</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- GITEX -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('gitex')">
+					<h3 class="font-bold text-lg mb-2">GITEX Participation</h3>
+					<p class="text-gray-600 text-sm mb-3">GITEX Technology Week</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Artificial Intelligence at the University -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('brain-bone')">
+					<h3 class="font-bold text-lg mb-2">Artificial Intelligence at the University: Boon or Bane</h3>
+					<p class="text-gray-600 text-sm mb-3">NYSA Applied Science University, Poland</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Teaching Mobility -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('teaching-mobility')">
+					<h3 class="font-bold text-lg mb-2">Teaching Mobility Program</h3>
+					<p class="text-gray-600 text-sm mb-3">Tashkent IT University</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Robotext -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('robotext')">
+					<h3 class="font-bold text-lg mb-2">Robotext - All Courses</h3>
+					<p class="text-gray-600 text-sm mb-3">Robotext</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+
+				<!-- Meta Android -->
+				<div class="bg-[#E8F5E9] p-6 rounded-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#00C853] cursor-pointer transform hover:scale-105" onclick="showCertificate('meta-android')">
+					<h3 class="font-bold text-lg mb-2">Meta Android Development</h3>
+					<p class="text-gray-600 text-sm mb-3">Coursera</p>
+					<p class="text-[#00C853] text-xs font-semibold" data-i18n="certificates.clickToView">Click to view certificate</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="bg-[#E8F5E9] py-20">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<p class="text-[#00C853] font-semibold mb-2" data-i18n="contact.sectionTitle">GET IN TOUCH</p>
+			<h2 class="text-4xl font-bold mb-4" data-i18n="contact.title">Contact Me</h2>
+			<p class="text-gray-600 mb-8" data-i18n="contact.description">
+				Feel free to reach out for collaborations, projects, or just a friendly chat!
+			</p>
+			<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+				<a href="mailto:cavadhusynli98@gmail.com" class="flex items-center gap-3 bg-white px-6 py-4 rounded-lg shadow-md hover:shadow-xl transition">
+					<svg class="w-6 h-6 text-[#00C853]" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+						<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+					</svg>
+					<span class="font-semibold">cavadhusynli98@gmail.com</span>
+				</a>
+				<a href="tel:+994504122160" class="flex items-center gap-3 bg-white px-6 py-4 rounded-lg shadow-md hover:shadow-xl transition">
+					<svg class="w-6 h-6 text-[#00C853]" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+					</svg>
+					<span class="font-semibold">+994 50 412 21 60</span>
+				</a>
+				<a href="https://wa.me/994504122160" target="_blank" class="flex items-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-lg shadow-md hover:shadow-xl transition">
+					<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+						<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+					</svg>
+					<span class="font-semibold">WhatsApp</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-[#00C853] text-white py-16">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid md:grid-cols-4 gap-8">
+				<!-- About Info -->
+				<div>
+					<h3 class="text-2xl font-bold mb-4">Javad Huseynli</h3>
+					<p class="text-white/80 mb-6" data-i18n="footer.description">
+						Full Stack Developer & Educator specializing in backend development, AI, and modern web technologies.
+					</p>
+					<div class="flex space-x-4">
+						<a href="https://linkedin.com/in/javadhuseynli" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+						</a>
+						<a href="https://github.com/javadhuseynli" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+						</a>
+						<a href="https://facebook.com/javadhuseynli" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+						</a>
+						<a href="https://instagram.com/javadhuseynli" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Quick Links -->
+				<div>
+					<h4 class="text-lg font-bold mb-4" data-i18n="footer.quickLinks">Quick Links</h4>
+					<ul class="space-y-2">
+						<li><a href="#about" class="text-white/80 hover:text-white transition" data-i18n="footer.aboutMe">About Me</a></li>
+						<li><a href="#skills" class="text-white/80 hover:text-white transition" data-i18n="footer.skills">Skills</a></li>
+						<li><a href="#projects" class="text-white/80 hover:text-white transition" data-i18n="footer.projects">Projects</a></li>
+						<li><a href="#gallery" class="text-white/80 hover:text-white transition" data-i18n="footer.gallery">Travel Gallery</a></li>
+					</ul>
+				</div>
+
+				<!-- More Links -->
+				<div>
+					<h4 class="text-lg font-bold mb-4" data-i18n="footer.more">More</h4>
+					<ul class="space-y-2">
+						<li><a href="#publications" class="text-white/80 hover:text-white transition" data-i18n="footer.publications">Publications</a></li>
+						<li><a href="#experience" class="text-white/80 hover:text-white transition" data-i18n="footer.experience">Experience</a></li>
+						<li><a href="#certificates" class="text-white/80 hover:text-white transition" data-i18n="footer.certificates">Certificates</a></li>
+						<li><a href="#contact" class="text-white/80 hover:text-white transition" data-i18n="footer.contact">Contact</a></li>
+					</ul>
+				</div>
+
+				<!-- Contact -->
+				<div>
+					<h4 class="text-lg font-bold mb-4" data-i18n="footer.contactTitle">Contact</h4>
+					<ul class="space-y-2 text-white/80">
+						<li>📧 cavadhusynli98@gmail.com</li>
+						<li>📱 +994 50 412 21 60</li>
+						<li><span data-i18n="footer.location">📍 Baku, Azerbaijan</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60">
+				<p data-i18n="footer.copyright">&copy; Copyright Javad Huseynli 2025. All Rights Reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Skill Detail Modal -->
+	<div id="skillModal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+		<div class="bg-white rounded-2xl max-w-md w-full p-8 relative animate-fade-in">
+			<button onclick="closeSkillModal()" class="absolute top-4 right-4 text-gray-400 hover:text-[#00C853] transition">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+				</svg>
+			</button>
+			<h3 id="skillModalTitle" class="text-3xl font-bold text-[#00C853] mb-4"></h3>
+			<p id="skillModalDescription" class="text-gray-700 leading-relaxed"></p>
+		</div>
+	</div>
+
+	<!-- Certificate Modal -->
+	<div id="certificateModal" class="hidden fixed inset-0 bg-black/90 z-50 overflow-y-auto">
+		<div class="min-h-screen px-4 py-8 flex items-center justify-center">
+			<div class="relative max-w-4xl w-full">
+				<button onclick="closeCertificateModal()" class="absolute -top-12 right-0 text-white hover:text-[#00C853] transition">
+					<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+				<img id="certificateImage" src="" alt="Certificate" class="w-full h-auto rounded-lg shadow-2xl"
+					 onerror="this.parentElement.innerHTML='<div class=\'bg-gradient-to-br from-[#00C853] to-[#00B248] h-96 flex items-center justify-center rounded-lg\'><p class=\'text-white text-2xl\'>Certificate Image Coming Soon</p></div>'" />
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Translations
+		const translations = {
+			az: {
+				// Navigation
+				'nav.about': 'Haqqında',
+				'nav.projects': 'Layihələr',
+				'nav.gallery': 'Qalereya',
+				'nav.certificates': 'Sertifikatlar',
+				'nav.publications': 'Nəşrlər',
+				'nav.contact': 'Əlaqə',
+				'nav.language': 'Dil',
+				// Hero Section
+				'hero.greeting': 'Salam, mən',
+				'hero.iam': 'Mən',
+				'hero.description': 'Backend proqramlaşdırma, veb texnologiyaları və çarpaz platformalı həllərdə ixtisaslaşmış Full Stack Developer. Müasir freymvorklar ilə genişlənə bilən tətbiqlər yaradıram.',
+				'hero.call': 'Zəng Et',
+				'hero.whatsapp': 'WhatsApp',
+				// About Section
+				'about.sectionTitle': 'HAQQIMDA',
+				'about.title': 'Full Stack Developer və Müəllim',
+				'about.experience': '6+ İl',
+				'about.paragraph1': 'Mən backend proqramlaşdırmada, veb texnologiyalarında və çarpaz platformalı həllərdə ixtisaslaşmış <strong>6+ illik təcrübəyə</strong> malik ehtiraslı <strong>Full Stack Developer</strong>-əm. Mənim ekspertizəm <strong>Python, Django, JavaScript, Java, Kotlin</strong> və <strong>Astro.js</strong> kimi müasir freymvorklardan əhatə edir.',
+				'about.paragraph2': 'Hazırda <strong>Bakı Biznes Universitetində İT Şöbəsi Müəllimi</strong> (2022-indiyədək) vəzifəsində çalışıram, praktiki sənaye təcrübəsini akademik mükəmməllik ilə birləşdirirəm. <strong>F Telecom şirkətində Java Backend Developer</strong> (2017-2018) vəzifəsində işləmişəm və <strong>Avrasiya Universitetində</strong> müxtəlif layihələrə töhfə vermişəm.',
+				'about.paragraph3': 'Beynəlxalq təcrübəm Polşadakı NYSA Tətbiqi Elmlər Universitetində <strong>Erasmus+ KA 171+</strong> proqramı çərçivəsində akademik mübadilələri və Daşkənd İnformasiya Texnologiyaları Universitetində təlim mobillik proqramını əhatə edir. Bu təcrübələr qlobal proqram təminatı inkişaf praktikalarına dair anlayışımı zənginləşdirmişdir.',
+				'about.paragraph4': 'Gələcək nəsil proqramçılara mentorluq etməklə yanaşı <strong>genişlənə bilən, təhlükəsiz tətbiqlər</strong> yaratmağa sadiqəm. Araşdırmalarım <strong>Scopus</strong>-da indeksləşdirilib və <strong>Oracle, Meta</strong> və aparıcı texnologiya institutlarından sertifikatlara sahibəm.',
+				// Experience Section
+				'experience.sectionTitle': 'KARYERA YOLUM',
+				'experience.title': 'İş Təcrübəsi',
+				'experience.avrasiya.date': 'Fevral 2025 - İyul 2025',
+				'experience.avrasiya.position': 'Avrasiya Universiteti',
+				'experience.avrasiya.description': 'Akademik araşdırma və inkişaf layihələrinə töhfə vermək, qabaqcıl proqram mühəndisliyi təcrübələrinə və yeni texnologiyalara diqqət yetirmək. Fakültə və tələbələrlə innovativ texnoloji həllər üzərində əməkdaşlıq etmək.',
+				'experience.odlar.date': '2022 - İndiyədək',
+				'experience.odlar.position': 'İT Şöbəsi Müəllimi',
+				'experience.odlar.company': 'Bakı Biznes Universiteti',
+				'experience.odlar.description': 'Tələbələrə proqram təminatı inkişafı, proqramlaşdırma əsasları və müasir inkişaf təcrübələri üzrə təlim vermək. Python, Java, veb inkişaf kursları üçün kurikulum hazırlamaq və gələcək nəsil proqram mühəndislərinin mentorluğunu etmək. Tələbələri texnologiya sənayesində karyera yerləşməsinə uğurla rəhbərlik etmək.',
+				'experience.odlaryurdu.date': '2022 - 2025',
+				'experience.odlaryurdu.position': 'İT Şöbəsi Müəllimi',
+				'experience.odlaryurdu.company': 'Odlar Yurdu Universiteti',
+				'experience.odlaryurdu.description': 'Bakalavr tələbələrinə proqramlaşdırma kursları və kompüter elmləri əsasları üzrə dərs keçmək. Proqram təminatı inkişaf kursları üçün təhsil materialları və praktiki laboratoriya məşğələləri hazırlanması. Tələbələrə akademik layihələrdə və tədqiqat fəaliyyətlərində mentorluq etmək.',
+				'experience.ftelecom.date': '2017 - 2018',
+				'experience.ftelecom.position': 'Java Backend Developer',
+				'experience.ftelecom.company': 'F Telecom',
+				'experience.ftelecom.description': 'Java və Spring Framework istifadə edərək telekommunikasiya sistemləri üçün backend xidmətlərinin inkişafı və saxlanması. Genişlənə bilən server tərəfli tətbiqlər, RESTful API inkişafı və verilənlər bazasının optimallaşdırılması üzərində işləmək. Telekom əməliyyatları üçün sistem performansının və etibarlılığının təkmilləşdirilməsinə töhfə vermək.',
+				// Skills Section
+				'skills.banner': 'BİLİKLƏRİM',
+				'skills.sectionTitle': 'PROQRAMLAŞDIRMA DİLLƏRİ',
+				'skills.title': 'Bacarıq Reytinqlərim',
+				'skills.frameworksTitle': 'FREYMVORKLAR VƏ TEXNOLOGİYALAR',
+				// Gallery Section
+				'gallery.sectionTitle': 'SƏYAHƏT QALEREYA',
+				'gallery.title': 'Qlobal Sərgüzəştlərim',
+				// Projects Section
+				'projects.sectionTitle': 'LAYİHƏLƏRİM',
+				'projects.title': 'GitHub Portfosu',
+				'projects.viewGithub': 'Tam GitHub Profilini Gör',
+				'projects.loading': 'GitHub-dan layihələr yüklənir...',
+				// Publications Section
+				'publications.sectionTitle': 'ARAŞDIRMA VƏ NƏŞRİYYATLAR',
+				'publications.title': 'Akademik Töhfələr',
+				// Certificates Section
+				'certificates.sectionTitle': 'PEŞƏKAR İNKİŞAF',
+				'certificates.title': 'Sertifikatlar və Nailiyyətlər',
+				'certificates.clickToView': 'Sertifikatı görmək üçün klikləyin',
+				// Contact Section
+				'contact.sectionTitle': 'ƏLAQƏ SAXLAYIN',
+				'contact.title': 'Mənimlə Əlaqə',
+				'contact.description': 'Əməkdaşlıq, layihələr və ya sadəcə dost söhbəti üçün mənimlə əlaqə saxlayın!',
+				// Footer
+				'footer.description': 'Backend proqramlaşdırma, süni intellekt və müasir veb texnologiyalarında ixtisaslaşmış Full Stack Developer və Müəllim.',
+				'footer.quickLinks': 'Sürətli Keçidlər',
+				'footer.aboutMe': 'Haqqımda',
+				'footer.skills': 'Bacarıqlar',
+				'footer.projects': 'Layihələr',
+				'footer.gallery': 'Səyahət Qalereyası',
+				'footer.more': 'Daha Çox',
+				'footer.publications': 'Nəşriyyatlar',
+				'footer.experience': 'Təcrübə',
+				'footer.certificates': 'Sertifikatlar',
+				'footer.contact': 'Əlaqə',
+				'footer.contactTitle': 'Əlaqə',
+				'footer.location': '📍 Bakı, Azərbaycan',
+				'footer.copyright': '© Müəllif hüququ Cavad Hüseynli 2025. Bütün hüquqlar qorunur.'
+			},
+			uz: {
+				// Navigation
+				'nav.about': 'Men haqimda',
+				'nav.projects': 'Loyihalar',
+				'nav.gallery': 'Galereya',
+				'nav.certificates': 'Sertifikatlar',
+				'nav.publications': 'Nashrlar',
+				'nav.contact': 'Aloqa',
+				'nav.language': 'Til',
+				// Hero Section
+				'hero.greeting': 'Salom, men',
+				'hero.iam': 'Men',
+				'hero.description': 'Backend dasturlash, veb texnologiyalari va platformalararo yechimlarda ixtisoslashgan Full Stack Dasturchi. Zamonaviy frameworklar bilan kengaytiriladigan ilovalar yarataman.',
+				'hero.call': 'Qo\'ng\'iroq qiling',
+				'hero.whatsapp': 'WhatsApp',
+				// About Section
+				'about.sectionTitle': 'MEN HAQIMDA',
+				'about.title': 'Full Stack Dasturchi va O\'qituvchi',
+				'about.experience': '6+ Yil',
+				'about.paragraph1': 'Men backend dasturlash, veb texnologiyalari va platformalararo yechimlarda ixtisoslashgan <strong>6+ yillik tajribaga</strong> ega ishtiyoqli <strong>Full Stack Dasturchiman</strong>. Mening tajribam <strong>Python, Django, JavaScript, Java, Kotlin</strong> va <strong>Astro.js</strong> kabi zamonaviy frameworklarni qamrab oladi.',
+				'about.paragraph2': 'Hozirda <strong>Boku Biznes Universitetida IT Kafedrasi O\'qituvchisi</strong> (2022-Hozir) sifatida xizmat qilyapman, amaliy sanoat tajribasini akademik mukammallik bilan birlashtiryapman. <strong>F Telecom kompaniyasida Java Backend Dasturchi</strong> (2017-2018) sifatida ishlaganman va <strong>Avrasiya Universitetida</strong> turli loyihalarga hissa qo\'shganman.',
+				'about.paragraph3': 'Xalqaro tajribam Polshadagi NYSA Amaliy Fanlar Universitetida <strong>Erasmus+ KA 171+</strong> dasturi doirasida akademik almashinuvlar va Toshkent Axborot Texnologiyalari Universitetida o\'qituvchilik mobillik dasturini o\'z ichiga oladi. Ushbu tajribalar global dasturiy ta\'minot ishlab chiqish amaliyotlariga oid tushunchamni boyitdi.',
+				'about.paragraph4': 'Kelgusi avlod dasturchilarga mentorlik qilish bilan birga <strong>kengaytiriladigan, xavfsiz ilovalar</strong> yaratishga sodiqman. Tadqiqotlarim <strong>Scopus</strong>da indekslantirilgan va <strong>Oracle, Meta</strong> va etakchi texnologiya institutlaridan sertifikatlarga egaman.',
+				// Experience Section
+				'experience.sectionTitle': 'MARTABA YO\'LIM',
+				'experience.title': 'Ish Tajribasi',
+				'experience.avrasiya.date': 'Fevral 2025 - Iyul 2025',
+				'experience.avrasiya.position': 'Avrasiya Universiteti',
+				'experience.avrasiya.description': 'Akademik tadqiqot va rivojlantirish loyihalariga hissa qo\'shish, ilg\'or dasturiy ta\'minot muhandisligi amaliyotlari va yangi texnologiyalarga e\'tibor qaratish. Fakultet va talabalar bilan innovatsion texnologik yechimlar ustida hamkorlik.',
+				'experience.odlar.date': '2022 - Hozir',
+				'experience.odlar.position': 'IT Kafedrasi O\'qituvchisi',
+				'experience.odlar.company': 'Boku Biznes Universiteti',
+				'experience.odlar.description': 'Talabalarga dasturiy ta\'minot ishlab chiqish, dasturlash asoslari va zamonaviy ishlab chiqish amaliyotlari bo\'yicha ta\'lim berish. Python, Java, veb-ishlab chiqish kurslari uchun o\'quv dasturini ishlab chiqish va kelgusi avlod dasturiy ta\'minot muhandislariga mentorlik qilish. Talabalarni texnologiya sanoatida karyera joylashtirish bo\'yicha muvaffaqiyatli boshqarganman.',
+				'experience.odlaryurdu.date': '2022 - 2025',
+				'experience.odlaryurdu.position': 'IT Kafedrasi O\'qituvchisi',
+				'experience.odlaryurdu.company': 'Odlar Yurdu Universiteti',
+				'experience.odlaryurdu.description': 'Bakalavr talabalariga dasturlash kurslari va kompyuter fanlari asoslari bo\'yicha dars berish. Dasturiy ta\'minot ishlab chiqish kurslari uchun o\'quv materiallari va amaliy laboratoriya mashg\'ulotlarini tayyorlash. Talabalarga akademik loyihalarda va tadqiqot faoliyatida mentorlik qilish.',
+				'experience.ftelecom.date': '2017 - 2018',
+				'experience.ftelecom.position': 'Java Backend Dasturchi',
+				'experience.ftelecom.company': 'F Telecom',
+				'experience.ftelecom.description': 'Java va Spring Framework yordamida telekommunikatsiya tizimlari uchun backend xizmatlarini ishlab chiqish va saqlash. Kengaytiriladigan server tomonidagi ilovalar, RESTful API ishlab chiqish va ma\'lumotlar bazasini optimallashtirish ustida ishlash. Telekom operatsiyalari uchun tizim samaradorligi va ishonchliligini yaxshilashga hissa qo\'shish.',
+				// Skills Section
+				'skills.banner': 'MENING BILIMLARIM',
+				'skills.sectionTitle': 'DASTURLASH TILLARI',
+				'skills.title': 'Ko\'nikmalarimning Reytingi',
+				'skills.frameworksTitle': 'FRAMEWORKLAR VA TEXNOLOGIYALAR',
+				// Gallery Section
+				'gallery.sectionTitle': 'SAYOHAT GALEREYASI',
+				'gallery.title': 'Mening Global Sarguzashtlarim',
+				// Projects Section
+				'projects.sectionTitle': 'MENING LOYIHALARIM',
+				'projects.title': 'GitHub Portfoliosi',
+				'projects.viewGithub': 'To\'liq GitHub Profilini Ko\'ring',
+				'projects.loading': 'GitHub\'dan loyihalar yuklanmoqda...',
+				// Publications Section
+				'publications.sectionTitle': 'TADQIQOT VA NASHRLAR',
+				'publications.title': 'Akademik Hissalar',
+				// Certificates Section
+				'certificates.sectionTitle': 'KASBIY RIVOJLANISH',
+				'certificates.title': 'Sertifikatlar va Yutuqlar',
+				'certificates.clickToView': 'Sertifikatni ko\'rish uchun bosing',
+				// Contact Section
+				'contact.sectionTitle': 'BOG\'LANING',
+				'contact.title': 'Men bilan bog\'laning',
+				'contact.description': 'Hamkorlik, loyihalar yoki do\'stona suhbat uchun men bilan bog\'laning!',
+				// Footer
+				'footer.description': 'Backend dasturlash, sun\'iy intellekt va zamonaviy veb texnologiyalarida ixtisoslashgan Full Stack Dasturchi va O\'qituvchi.',
+				'footer.quickLinks': 'Tezkor Havolalar',
+				'footer.aboutMe': 'Men haqimda',
+				'footer.skills': 'Ko\'nikmalar',
+				'footer.projects': 'Loyihalar',
+				'footer.gallery': 'Sayohat Galereyasi',
+				'footer.more': 'Ko\'proq',
+				'footer.publications': 'Nashrlar',
+				'footer.experience': 'Tajriba',
+				'footer.certificates': 'Sertifikatlar',
+				'footer.contact': 'Aloqa',
+				'footer.contactTitle': 'Aloqa',
+				'footer.location': '📍 Boku, Ozarbayjon',
+				'footer.copyright': '© Mualliflik huquqi Javad Huseynli 2025. Barcha huquqlar himoyalangan.'
+			},
+			tr: {
+				// Navigation
+				'nav.about': 'Hakkında',
+				'nav.projects': 'Projeler',
+				'nav.gallery': 'Galeri',
+				'nav.certificates': 'Sertifikalar',
+				'nav.publications': 'Yayınlar',
+				'nav.contact': 'İletişim',
+				'nav.language': 'Dil',
+				// Hero Section
+				'hero.greeting': 'Merhaba, ben',
+				'hero.iam': 'Ben',
+				'hero.description': 'Backend geliştirme, web teknolojileri ve çapraz platform çözümlerinde uzmanlaşmış Full Stack Developer. Modern frameworkler ile ölçeklenebilir uygulamalar geliştiriyorum.',
+				'hero.call': 'Ara',
+				'hero.whatsapp': 'WhatsApp',
+				// About Section
+				'about.sectionTitle': 'HAKKIMDA',
+				'about.title': 'Full Stack Developer ve Öğretmen',
+				'about.experience': '6+ Yıl',
+				'about.paragraph1': 'Backend geliştirme, web teknolojileri ve çapraz platform çözümlerinde uzmanlaşmış <strong>6+ yıllık deneyime</strong> sahip tutkulu bir <strong>Full Stack Developer\'ım</strong>. Uzmanlığım <strong>Python, Django, JavaScript, Java, Kotlin</strong> ve <strong>Astro.js</strong> gibi modern frameworkleri kapsar.',
+				'about.paragraph2': 'Şu anda <strong>Bakü İşletme Üniversitesi\'nde BT Bölümü Öğretmeni</strong> (2022-Günümüz) olarak görev yapıyorum, pratik sektör deneyimini akademik mükemmellikle birleştiriyorum. <strong>F Telecom\'da Java Backend Developer</strong> (2017-2018) olarak çalıştım ve <strong>Avrasiya Üniversitesi\'nde</strong> çeşitli projelere katkıda bulundum.',
+				'about.paragraph3': 'Uluslararası deneyimim Polonya\'daki NYSA Uygulamalı Bilimler Üniversitesi\'nde <strong>Erasmus+ KA 171+</strong> programı kapsamında akademik değişimler ve Taşkent Bilgi Teknolojileri Üniversitesi\'nde öğretim mobilite programını içerir. Bu deneyimler küresel yazılım geliştirme uygulamalarına dair anlayışımı zenginleştirdi.',
+				'about.paragraph4': 'Gelecek nesil geliştiricilere mentorluk yaparken <strong>ölçeklenebilir, güvenli uygulamalar</strong> oluşturmaya kendimi adadım. Araştırmalarım <strong>Scopus</strong>\'ta indekslenmiş ve <strong>Oracle, Meta</strong> ve önde gelen teknoloji kurumlarından sertifikalara sahibim.',
+				// Experience Section
+				'experience.sectionTitle': 'KARİYER YOLCULUĞUM',
+				'experience.title': 'İş Deneyimi',
+				'experience.avrasiya.date': 'Şubat 2025 - Temmuz 2025',
+				'experience.avrasiya.position': 'Avrasiya Üniversitesi',
+				'experience.avrasiya.description': 'Akademik araştırma ve geliştirme projelerine katkıda bulunma, gelişmiş yazılım mühendisliği uygulamaları ve yeni teknolojilere odaklanma. Fakülte ve öğrencilerle yenilikçi teknoloji çözümleri üzerinde işbirliği.',
+				'experience.odlar.date': '2022 - Günümüz',
+				'experience.odlar.position': 'BT Bölümü Öğretmeni',
+				'experience.odlar.company': 'Bakü İşletme Üniversitesi',
+				'experience.odlar.description': 'Öğrencilere yazılım geliştirme, programlama temelleri ve modern geliştirme uygulamaları konusunda eğitim verme. Python, Java, web geliştirme kursları için müfredat geliştirme ve gelecek nesil yazılım mühendislerine mentorluk yapma. Öğrencileri teknoloji sektöründe kariyer yerleşimlerine başarıyla yönlendirdim.',
+				'experience.odlaryurdu.date': '2022 - 2025',
+				'experience.odlaryurdu.position': 'BT Bölümü Öğretmeni',
+				'experience.odlaryurdu.company': 'Odlar Yurdu Üniversitesi',
+				'experience.odlaryurdu.description': 'Lisans öğrencilerine programlama kursları ve bilgisayar bilimleri temelleri dersleri vermek. Yazılım geliştirme kursları için eğitim materyalleri ve pratik laboratuvar egzersizleri geliştirmek. Öğrencilere akademik projelerde ve araştırma faaliyetlerinde mentorluk yapmak.',
+				'experience.ftelecom.date': '2017 - 2018',
+				'experience.ftelecom.position': 'Java Backend Developer',
+				'experience.ftelecom.company': 'F Telecom',
+				'experience.ftelecom.description': 'Java ve Spring Framework kullanarak telekomünikasyon sistemleri için backend hizmetleri geliştirme ve bakımını yapma. Ölçeklenebilir sunucu taraflı uygulamalar, RESTful API geliştirme ve veritabanı optimizasyonu üzerinde çalışma. Telekom operasyonları için sistem performansını ve güvenilirliğini iyileştirmeye katkıda bulunma.',
+				// Skills Section
+				'skills.banner': 'BECERİLERİM',
+				'skills.sectionTitle': 'PROGRAMLAMA DİLLERİ',
+				'skills.title': 'Beceri Derecelendirmelerim',
+				'skills.frameworksTitle': 'FRAMEWORKLER VE TEKNOLOJİLER',
+				// Gallery Section
+				'gallery.sectionTitle': 'SEYAHAT GALERİSİ',
+				'gallery.title': 'Küresel Maceralarım',
+				// Projects Section
+				'projects.sectionTitle': 'PROJELERİM',
+				'projects.title': 'GitHub Portföyü',
+				'projects.viewGithub': 'Tam GitHub Profilini Görüntüle',
+				'projects.loading': 'GitHub\'dan projeler yükleniyor...',
+				// Publications Section
+				'publications.sectionTitle': 'ARAŞTIRMA VE YAYINLAR',
+				'publications.title': 'Akademik Katkılar',
+				// Certificates Section
+				'certificates.sectionTitle': 'PROFESYONEL GELİŞİM',
+				'certificates.title': 'Sertifikalar ve Başarılar',
+				'certificates.clickToView': 'Sertifikayı görüntülemek için tıklayın',
+				// Contact Section
+				'contact.sectionTitle': 'İLETİŞİME GEÇİN',
+				'contact.title': 'Benimle İletişime Geçin',
+				'contact.description': 'İşbirliği, projeler veya dostça bir sohbet için benimle iletişime geçmekten çekinmeyin!',
+				// Footer
+				'footer.description': 'Backend geliştirme, yapay zeka ve modern web teknolojilerinde uzmanlaşmış Full Stack Developer ve Öğretmen.',
+				'footer.quickLinks': 'Hızlı Bağlantılar',
+				'footer.aboutMe': 'Hakkımda',
+				'footer.skills': 'Beceriler',
+				'footer.projects': 'Projeler',
+				'footer.gallery': 'Seyahat Galerisi',
+				'footer.more': 'Daha Fazla',
+				'footer.publications': 'Yayınlar',
+				'footer.experience': 'Deneyim',
+				'footer.certificates': 'Sertifikalar',
+				'footer.contact': 'İletişim',
+				'footer.contactTitle': 'İletişim',
+				'footer.location': '📍 Bakü, Azerbaycan',
+				'footer.copyright': '© Telif Hakkı Javad Huseynli 2025. Tüm hakları saklıdır.'
+			},
+			ru: {
+				// Navigation
+				'nav.about': 'О себе',
+				'nav.projects': 'Проекты',
+				'nav.gallery': 'Галерея',
+				'nav.certificates': 'Сертификаты',
+				'nav.publications': 'Публикации',
+				'nav.contact': 'Контакты',
+				'nav.language': 'Язык',
+				// Hero Section
+				'hero.greeting': 'Привет, я',
+				'hero.iam': 'Я',
+				'hero.description': 'Full Stack разработчик, специализирующийся на backend-разработке, веб-технологиях и кроссплатформенных решениях. Создаю масштабируемые приложения с использованием современных фреймворков.',
+				'hero.call': 'Позвонить',
+				'hero.whatsapp': 'WhatsApp',
+				// About Section
+				'about.sectionTitle': 'О СЕБЕ',
+				'about.title': 'Full Stack разработчик и преподаватель',
+				'about.experience': '6+ Лет',
+				'about.paragraph1': 'Я страстный <strong>Full Stack разработчик</strong> с <strong>опытом более 6 лет</strong>, специализирующийся на backend-разработке, веб-технологиях и кроссплатформенных решениях. Мой опыт охватывает <strong>Python, Django, JavaScript, Java, Kotlin</strong> и современные фреймворки, такие как <strong>Astro.js</strong>.',
+				'about.paragraph2': 'В настоящее время работаю <strong>преподавателем IT-кафедры в Бакинском Бизнес Университете</strong> (2022-Настоящее время), сочетая практический опыт работы в индустрии с академическим превосходством. Работал <strong>Java Backend разработчиком в F Telecom</strong> (2017-2018) и внес вклад в различные проекты в <strong>Университете Авразия</strong>.',
+				'about.paragraph3': 'Мой международный опыт включает академические обмены по программе <strong>Erasmus+ KA 171+</strong> в Университете прикладных наук NYSA в Польше и программу преподавательской мобильности в Ташкентском университете информационных технологий. Этот опыт обогатил мое понимание глобальных практик разработки программного обеспечения.',
+				'about.paragraph4': 'Я привержен созданию <strong>масштабируемых, безопасных приложений</strong>, одновременно наставляя следующее поколение разработчиков. Мои исследования индексированы в <strong>Scopus</strong>, и у меня есть сертификаты от <strong>Oracle, Meta</strong> и ведущих технологических институтов.',
+				// Experience Section
+				'experience.sectionTitle': 'КАРЬЕРНЫЙ ПУТЬ',
+				'experience.title': 'Опыт работы',
+				'experience.avrasiya.date': 'Февраль 2025 - Июль 2025',
+				'experience.avrasiya.position': 'Университет Авразия',
+				'experience.avrasiya.description': 'Вклад в академические исследовательские и опытно-конструкторские проекты, сосредоточившись на передовых методах программной инженерии и новых технологиях. Сотрудничество с преподавателями и студентами над инновационными технологическими решениями.',
+				'experience.odlar.date': '2022 - Настоящее время',
+				'experience.odlar.position': 'Преподаватель IT-кафедры',
+				'experience.odlar.company': 'Бакинский Бизнес Университет',
+				'experience.odlar.description': 'Обучение студентов разработке программного обеспечения, основам программирования и современным практикам разработки. Разработка учебных программ по Python, Java, веб-разработке и наставничество следующего поколения программных инженеров. Успешно направил многих студентов на карьерные позиции в технологической индустрии.',
+				'experience.odlaryurdu.date': '2022 - 2025',
+				'experience.odlaryurdu.position': 'Преподаватель IT-кафедры',
+				'experience.odlaryurdu.company': 'Университет Одлар Юрду',
+				'experience.odlaryurdu.description': 'Преподавание курсов программирования и основ информатики студентам бакалавриата. Разработка учебных материалов и практических лабораторных упражнений для курсов разработки программного обеспечения. Наставничество студентов в академических проектах и исследовательской деятельности.',
+				'experience.ftelecom.date': '2017 - 2018',
+				'experience.ftelecom.position': 'Java Backend разработчик',
+				'experience.ftelecom.company': 'F Telecom',
+				'experience.ftelecom.description': 'Разработка и поддержка backend-сервисов для телекоммуникационных систем с использованием Java и Spring Framework. Работа над масштабируемыми серверными приложениями, разработкой RESTful API и оптимизацией баз данных. Вклад в повышение производительности и надежности систем для телекоммуникационных операций.',
+				// Skills Section
+				'skills.banner': 'МОИ НАВЫКИ',
+				'skills.sectionTitle': 'ЯЗЫКИ ПРОГРАММИРОВАНИЯ',
+				'skills.title': 'Мои рейтинги навыков',
+				'skills.frameworksTitle': 'ФРЕЙМВОРКИ И ТЕХНОЛОГИИ',
+				// Gallery Section
+				'gallery.sectionTitle': 'ГАЛЕРЕЯ ПУТЕШЕСТВИЙ',
+				'gallery.title': 'Мои глобальные приключения',
+				// Projects Section
+				'projects.sectionTitle': 'МОИ ПРОЕКТЫ',
+				'projects.title': 'GitHub портфолио',
+				'projects.viewGithub': 'Посмотреть полный профиль GitHub',
+				'projects.loading': 'Загрузка проектов с GitHub...',
+				// Publications Section
+				'publications.sectionTitle': 'ИССЛЕДОВАНИЯ И ПУБЛИКАЦИИ',
+				'publications.title': 'Академический вклад',
+				// Certificates Section
+				'certificates.sectionTitle': 'ПРОФЕССИОНАЛЬНОЕ РАЗВИТИЕ',
+				'certificates.title': 'Сертификаты и достижения',
+				'certificates.clickToView': 'Нажмите, чтобы просмотреть сертификат',
+				// Contact Section
+				'contact.sectionTitle': 'СВЯЖИТЕСЬ СО МНОЙ',
+				'contact.title': 'Свяжитесь со мной',
+				'contact.description': 'Не стесняйтесь обращаться для сотрудничества, проектов или просто дружеской беседы!',
+				// Footer
+				'footer.description': 'Full Stack разработчик и преподаватель, специализирующийся на backend-разработке, искусственном интеллекте и современных веб-технологиях.',
+				'footer.quickLinks': 'Быстрые ссылки',
+				'footer.aboutMe': 'О себе',
+				'footer.skills': 'Навыки',
+				'footer.projects': 'Проекты',
+				'footer.gallery': 'Галерея путешествий',
+				'footer.more': 'Больше',
+				'footer.publications': 'Публикации',
+				'footer.experience': 'Опыт',
+				'footer.certificates': 'Сертификаты',
+				'footer.contact': 'Контакты',
+				'footer.contactTitle': 'Контакты',
+				'footer.location': '📍 Баку, Азербайджан',
+				'footer.copyright': '© Авторское право Джавад Гусейнли 2025. Все права защищены.'
+			},
+			en: {
+				// Navigation
+				'nav.about': 'About',
+				'nav.projects': 'Projects',
+				'nav.gallery': 'Gallery',
+				'nav.certificates': 'Certificates',
+				'nav.publications': 'Publications',
+				'nav.contact': 'Contact',
+				'nav.language': 'Language',
+				// Hero Section
+				'hero.greeting': 'Hi, I\'m',
+				'hero.iam': 'I am',
+				'hero.description': 'Passionate Full Stack Developer specializing in backend development, web technologies, and cross-platform solutions. Building scalable applications with modern frameworks.',
+				'hero.call': 'Call Me',
+				'hero.whatsapp': 'WhatsApp',
+				// About Section
+				'about.sectionTitle': 'ABOUT ME',
+				'about.title': 'Full Stack Developer & Educator',
+				'about.experience': '6+ Years',
+				'about.paragraph1': 'I am a passionate <strong>Full Stack Developer</strong> with <strong>6+ years of experience</strong> specializing in backend development, web technologies, and cross-platform solutions. My expertise spans across <strong>Python, Django, JavaScript, Java, Kotlin</strong>, and modern frameworks like <strong>Astro.js</strong>.',
+				'about.paragraph2': 'Currently serving as an <strong>IT Department Teacher at Baku Business University</strong> (2022-Present), I combine practical industry experience with academic excellence. I\'ve worked as a <strong>Java Backend Developer at F Telecom</strong> (2017-2018) and contributed to various projects at <strong>Avrasiya University</strong>.',
+				'about.paragraph3': 'My international experience includes academic exchanges through <strong>Erasmus+ KA 171+</strong> at NYSA University of Applied Sciences in Poland, and a teaching mobility program at Tashkent University of Information Technologies. These experiences have enriched my understanding of global software development practices.',
+				'about.paragraph4': 'I am committed to building <strong>scalable, secure applications</strong> while mentoring the next generation of developers. My research is indexed in <strong>Scopus</strong>, and I hold certifications from <strong>Oracle, Meta</strong>, and leading tech institutions.',
+				// Experience Section
+				'experience.sectionTitle': 'CAREER JOURNEY',
+				'experience.title': 'Work Experience',
+				'experience.avrasiya.date': 'February 2025 - July 2025',
+				'experience.avrasiya.position': 'Avrasiya University',
+				'experience.avrasiya.description': 'Contributing to academic research and development projects, focusing on advanced software engineering practices and emerging technologies. Collaborating with faculty and students on innovative tech solutions.',
+				'experience.odlar.date': '2022 - Present',
+				'experience.odlar.position': 'IT Department Teacher',
+				'experience.odlar.company': 'Baku Business University',
+				'experience.odlar.description': 'Instructing students in software development, programming fundamentals, and modern development practices. Developing curriculum for Python, Java, web development courses and mentoring the next generation of software engineers. Successfully guided numerous students to career placements in tech industry.',
+				'experience.odlaryurdu.date': '2022 - 2025',
+				'experience.odlaryurdu.position': 'IT Department Teacher',
+				'experience.odlaryurdu.company': 'Odlar Yurdu University',
+				'experience.odlaryurdu.description': 'Teaching programming courses and computer science fundamentals to undergraduate students. Developed educational materials and practical lab exercises for software development courses. Mentored students in academic projects and research activities.',
+				'experience.ftelecom.date': '2017 - 2018',
+				'experience.ftelecom.position': 'Java Backend Developer',
+				'experience.ftelecom.company': 'F Telecom',
+				'experience.ftelecom.description': 'Developed and maintained backend services for telecommunications systems using Java and Spring Framework. Worked on scalable server-side applications, RESTful API development, and database optimization. Contributed to improving system performance and reliability for telecom operations.',
+				// Skills Section
+				'skills.banner': 'MY SKILLS',
+				'skills.sectionTitle': 'PROGRAMMING LANGUAGES',
+				'skills.title': 'My Skill Ratings',
+				'skills.frameworksTitle': 'FRAMEWORKS & TECHNOLOGIES',
+				// Gallery Section
+				'gallery.sectionTitle': 'TRAVEL GALLERY',
+				'gallery.title': 'My Global Adventures',
+				// Projects Section
+				'projects.sectionTitle': 'MY PROJECTS',
+				'projects.title': 'GitHub Portfolio',
+				'projects.viewGithub': 'View Full GitHub Profile',
+				'projects.loading': 'Loading projects from GitHub...',
+				// Publications Section
+				'publications.sectionTitle': 'RESEARCH & PUBLICATIONS',
+				'publications.title': 'Academic Contributions',
+				// Certificates Section
+				'certificates.sectionTitle': 'PROFESSIONAL DEVELOPMENT',
+				'certificates.title': 'Certifications & Achievements',
+				'certificates.clickToView': 'Click to view certificate',
+				// Contact Section
+				'contact.sectionTitle': 'GET IN TOUCH',
+				'contact.title': 'Contact Me',
+				'contact.description': 'Feel free to reach out for collaborations, projects, or just a friendly chat!',
+				// Footer
+				'footer.description': 'Full Stack Developer & Educator specializing in backend development, AI, and modern web technologies.',
+				'footer.quickLinks': 'Quick Links',
+				'footer.aboutMe': 'About Me',
+				'footer.skills': 'Skills',
+				'footer.projects': 'Projects',
+				'footer.gallery': 'Travel Gallery',
+				'footer.more': 'More',
+				'footer.publications': 'Publications',
+				'footer.experience': 'Experience',
+				'footer.certificates': 'Certificates',
+				'footer.contact': 'Contact',
+				'footer.contactTitle': 'Contact',
+				'footer.location': '📍 Baku, Azerbaijan',
+				'footer.copyright': '© Copyright Javad Huseynli 2025. All Rights Reserved.'
+			}
+		};
+
+		// Language menu toggle
+		window.toggleLanguageMenu = function() {
+			const languageMenu = document.getElementById('languageMenu');
+			if (languageMenu) {
+				languageMenu.classList.toggle('hidden');
+			}
+		}
+
+		// Change language
+		window.changeLanguage = function(lang) {
+			const currentLangSpan = document.getElementById('currentLang');
+			const languageMenu = document.getElementById('languageMenu');
+
+			// Update current language display
+			const langNames = { 'az': 'AZ', 'tr': 'TR', 'en': 'EN', 'ru': 'RU', 'uz': 'UZ' };
+			currentLangSpan.textContent = langNames[lang];
+
+			// Update all elements with data-i18n attribute
+			document.querySelectorAll('[data-i18n]').forEach(element => {
+				const key = element.getAttribute('data-i18n');
+				if (translations[lang] && translations[lang][key]) {
+					// Use innerHTML to preserve HTML tags like <strong>, <br>, etc.
+					element.innerHTML = translations[lang][key];
+				}
+			});
+
+			// Close language menu
+			languageMenu.classList.add('hidden');
+
+			// Store language preference
+			localStorage.setItem('preferredLanguage', lang);
+
+			// Close mobile menu if open
+			const mobileMenu = document.getElementById('mobileMenu');
+			if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+				mobileMenu.classList.add('hidden');
+			}
+		}
+
+		// Load saved language on page load
+		document.addEventListener('DOMContentLoaded', () => {
+			const savedLang = localStorage.getItem('preferredLanguage') || 'az';
+			changeLanguage(savedLang);
+		});
+
+		// Close language menu when clicking outside
+		document.addEventListener('click', (e) => {
+			const languageMenu = document.getElementById('languageMenu');
+			const langButton = languageMenu?.previousElementSibling;
+			if (languageMenu && !languageMenu.contains(e.target) && e.target !== langButton && !langButton?.contains(e.target)) {
+				languageMenu.classList.add('hidden');
+			}
+		});
+
+		// Mobile menu toggle
+		window.toggleMobileMenu = function() {
+			const mobileMenu = document.getElementById('mobileMenu');
+			if (mobileMenu) {
+				mobileMenu.classList.toggle('hidden');
+			}
+		}
+
+		// CSRF token generation and storage
+		const csrfToken = Math.random().toString(36).substring(2) + Date.now().toString(36);
+		document.querySelector('meta[name="csrf-token"]')?.setAttribute('content', csrfToken);
+
+		// Form submission with CSRF protection
+		document.querySelectorAll('form').forEach(form => {
+			form.addEventListener('submit', function(e) {
+				e.preventDefault();
+				const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+				console.log('Form submitted with CSRF token:', token);
+				// Add your form submission logic here
+			});
+		});
+
+		// Typing animation for hero section
+		const roles = [
+			'Full Stack Developer',
+			'Backend Specialist',
+			'Python Expert',
+			'Java Developer',
+			'Mobile Developer',
+			'Tech Educator'
+		];
+
+		let roleIndex = 0;
+		let charIndex = 0;
+		let isDeleting = false;
+		const typedTextElement = document.querySelector('.typed-text');
+
+		function typeRole() {
+			const currentRole = roles[roleIndex];
+
+			if (isDeleting) {
+				typedTextElement.textContent = currentRole.substring(0, charIndex - 1);
+				charIndex--;
+			} else {
+				typedTextElement.textContent = currentRole.substring(0, charIndex + 1);
+				charIndex++;
+			}
+
+			let typeSpeed = 150;
+
+			if (isDeleting) {
+				typeSpeed /= 2;
+			}
+
+			if (!isDeleting && charIndex === currentRole.length) {
+				typeSpeed = 2000;
+				isDeleting = true;
+			} else if (isDeleting && charIndex === 0) {
+				isDeleting = false;
+				roleIndex = (roleIndex + 1) % roles.length;
+				typeSpeed = 500;
+			}
+
+			setTimeout(typeRole, typeSpeed);
+		}
+
+		// Start typing animation
+		setTimeout(typeRole, 1000);
+
+		// Skill details data
+		const skillDetails = {
+			sql: {
+				title: 'SQL',
+				description: 'Expert in database design, optimization, and complex query writing. Proficient with PostgreSQL, MySQL, and Oracle databases for enterprise applications.'
+			},
+			python: {
+				title: 'Python',
+				description: 'Advanced Python development for backend systems, data processing, and automation. Extensive experience with Django, FastAPI, and scientific libraries.'
+			},
+			javascript: {
+				title: 'JavaScript',
+				description: 'Modern JavaScript (ES6+) for both frontend and backend development. Skilled in React, Vue, Node.js, and modern web technologies.'
+			},
+			java: {
+				title: 'Java & Kotlin',
+				description: 'Enterprise Java development with Spring Framework, microservices architecture. Android development with Kotlin for mobile applications.'
+			},
+			php: {
+				title: 'PHP',
+				description: 'Web development with PHP for content management systems and e-commerce platforms. Experience with Laravel and WordPress.'
+			},
+			assembly: {
+				title: 'Assembly',
+				description: 'Low-level programming for system optimization and embedded systems. Understanding of computer architecture and hardware interaction.'
+			},
+			django: {
+				title: 'Django',
+				description: 'Full-stack web development with Django framework. Building scalable, secure web applications with RESTful APIs and database integration.'
+			},
+			astro: {
+				title: 'Astro.js',
+				description: 'Modern static site generation with Astro for high-performance websites. Combining multiple frontend frameworks for optimal results.'
+			},
+			android: {
+				title: 'Android Development',
+				description: 'Native Android app development with Java and Kotlin. Building user-friendly mobile applications with modern Android architecture.'
+			}
+		};
+
+		// Show skill detail modal
+		function showSkillDetail(skillKey) {
+			const skill = skillDetails[skillKey];
+			const modal = document.getElementById('skillModal');
+			const title = document.getElementById('skillModalTitle');
+			const description = document.getElementById('skillModalDescription');
+
+			title.textContent = skill.title;
+			description.textContent = skill.description;
+
+			modal.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+
+		// Close skill modal
+		function closeSkillModal() {
+			const modal = document.getElementById('skillModal');
+			modal.classList.add('hidden');
+			document.body.style.overflow = 'auto';
+		}
+
+		// Animate skill bars on page load
+		function animateSkillBars() {
+			const skillBars = document.querySelectorAll('.skill-bar');
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const bar = entry.target;
+						const width = bar.getAttribute('data-width');
+						setTimeout(() => {
+							bar.style.width = width + '%';
+						}, 200);
+						observer.unobserve(bar);
+					}
+				});
+			}, { threshold: 0.5 });
+
+			skillBars.forEach(bar => {
+				bar.style.transition = 'width 1.5s ease-out';
+				observer.observe(bar);
+			});
+		}
+
+		// Initialize skill bar animations
+		animateSkillBars();
+
+		// Certificate image paths
+		const certificates = {
+			'oracle-ai': '/images/certificates/oracle-ai.jpg',
+			'oracle-data': '/images/certificates/oracle-data.jpg',
+			'java-spring': '/images/certificates/java-spring.jpg',
+			'red-team': '/images/certificates/red-team.jpg',
+			'edulamp': '/images/certificates/edulamp.jpg',
+			'gitex': '/images/certificates/gitex.jpg',
+			'brain-bone': '/images/certificates/brain-bone.jpg',
+			'teaching-mobility': '/images/certificates/teaching-mobility.jpg',
+			'robotext': '/images/certificates/robotext.jpg',
+			'meta-android': '/images/certificates/meta-android.jpg'
+		};
+
+		// Show certificate modal
+		function showCertificate(certKey) {
+			const modal = document.getElementById('certificateModal');
+			const image = document.getElementById('certificateImage');
+
+			image.src = certificates[certKey];
+			modal.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+
+		// Close certificate modal
+		function closeCertificateModal() {
+			const modal = document.getElementById('certificateModal');
+			modal.classList.add('hidden');
+			document.body.style.overflow = 'auto';
+		}
+
+		// Gallery functionality
+		const galleries = {
+			dubai: {
+				title: '🇦🇪 Dubai, UAE - GITEX',
+				description: 'Participated in GITEX Technology Week, exploring the innovation hub of the Middle East. Experienced cutting-edge technology, futuristic architecture, and connected with international tech communities.',
+				images: [
+					'/images/dub1.jpeg',
+					'/images/dub2.jpeg',
+					'/images/dub3.jpeg',
+					'/images/dub4.jpeg',
+					'/images/dub5.jpeg',
+					'/images/dub6.jpeg',
+					'/images/dub7.jpeg',
+					'/images/dub8.jpeg'
+				]
+			},
+			poland: {
+				title: '🇵🇱 Poland - Erasmus+ KA 171+',
+				description: 'Erasmus+ KA 171+ program at NYSA University of Applied Sciences. Engaged in academic research on Brain and Bone AI technologies and collaborated with European software engineering professionals. (May 2024 • 1 Month)',
+				images: [
+					'/images/pl1.jpeg',
+					'/images/pl2.jpeg',
+					'/images/pl4.jpeg',
+					'/images/pl5.jpeg',
+					'/images/pl6.jpeg',
+					'/images/pl9.jpeg',
+					'/images/pl10.jpeg',
+					'/images/pl11.jpeg',
+					'/images/pl12.jpeg'
+				]
+			},
+			uzbekistan: {
+				title: '🇺🇿 Uzbekistan - Tashkent',
+				description: 'Teaching mobility program at Tashkent University of Information Technologies. Shared knowledge in modern software development practices and explored Central Asia\'s growing tech ecosystem. (2024 • 1 Month)',
+				images: [
+					'/images/uz1.jpeg',
+					'/images/uz2.jpeg',
+					'/images/uz3.jpeg',
+					'/images/uz4.jpeg'
+				]
+			},
+			georgia: {
+				title: '🇬🇪 Georgia - Tbilisi',
+				description: 'Exploring the beautiful landscapes and rich cultural heritage of Georgia, experiencing the blend of ancient traditions and modern development.',
+				images: [
+					'/images/geo2.jpeg',
+					'/images/geo3.jpeg',
+					'/images/geo4.jpeg',
+					'/images/geo5.jpeg',
+					'/images/geo6.jpeg'
+				]
+			},
+			turkey: {
+				title: '🇹🇷 Turkey - Trabzon',
+				description: 'Discovering the vibrant city where East meets West, exploring historic sites, modern architecture, and Turkish culture.',
+				images: [
+					'/images/tr1.jpeg',
+					'/images/tr2.jpeg',
+					'/images/tr3.jpeg',
+					'/images/tr4.jpeg'
+				]
+			}
+		};
+
+		let currentGallery = null;
+		let currentImageIndex = 0;
+		let currentCountry = 'dubai';
+
+		// Show country gallery in the section
+		function showCountryGallery(country) {
+			currentCountry = country;
+			const gallery = galleries[country];
+
+			// Update tabs
+			document.querySelectorAll('.country-tab').forEach(tab => {
+				tab.classList.remove('bg-[#00C853]', 'text-white');
+				tab.classList.add('bg-[#E8F5E9]', 'text-gray-700');
+			});
+			document.getElementById(`tab-${country}`).classList.remove('bg-[#E8F5E9]', 'text-gray-700');
+			document.getElementById(`tab-${country}`).classList.add('bg-[#00C853]', 'text-white');
+
+			// Update content
+			document.getElementById('gallery-content').innerHTML = `
+				<div class="bg-[#E8F5E9] p-6 rounded-lg max-w-3xl mx-auto">
+					<h3 class="text-2xl font-bold mb-3 text-[#00C853]">${gallery.title}</h3>
+					<p class="text-gray-700">${gallery.description}</p>
+				</div>
+			`;
+
+			// Update image grid
+			const grid = document.getElementById('gallery-grid');
+			grid.innerHTML = '';
+			gallery.images.forEach((imgSrc, index) => {
+				const div = document.createElement('div');
+				div.className = 'relative overflow-hidden rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:scale-105';
+				div.onclick = () => openGalleryAtIndex(country, index);
+				div.innerHTML = `
+					<img src="${imgSrc}" alt="${gallery.title}" class="w-full h-48 object-cover"
+						 onerror="this.parentElement.innerHTML='<div class=\\'bg-gradient-to-br from-[#00C853] to-[#00B248] h-48 flex items-center justify-center rounded-lg\\'><p class=\\'text-white\\'>Photo ${index + 1}</p></div>'" />
+					<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+						<p class="text-white text-sm font-semibold">${index + 1} / ${gallery.images.length}</p>
+					</div>
+				`;
+				grid.appendChild(div);
+			});
+		}
+
+		// Initialize with Dubai
+		setTimeout(() => showCountryGallery('dubai'), 100);
+
+		function openGalleryAtIndex(country, index) {
+			currentGallery = galleries[country];
+			currentImageIndex = index;
+			showGalleryImage();
+
+			const modal = document.getElementById('galleryModal');
+			modal.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function openGallery(country) {
+			currentGallery = galleries[country];
+			currentImageIndex = 0;
+			showGalleryImage();
+
+			const modal = document.getElementById('galleryModal');
+			modal.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function showGalleryImage() {
+			const title = document.getElementById('galleryTitle');
+			const imagesContainer = document.getElementById('galleryImages');
+			const imageCounter = document.getElementById('imageCounter');
+
+			title.textContent = currentGallery.title;
+			imageCounter.textContent = `${currentImageIndex + 1} / ${currentGallery.images.length}`;
+
+			const imgSrc = currentGallery.images[currentImageIndex];
+			imagesContainer.innerHTML = `
+				<div class="relative overflow-hidden rounded-lg shadow-2xl max-w-4xl mx-auto">
+					<img src="${imgSrc}" alt="${currentGallery.title}"
+						 class="w-full h-auto max-h-[70vh] object-contain"
+						 onerror="this.parentElement.innerHTML='<div class=\\'bg-gradient-to-br from-[#00C853] to-[#00B248] h-96 flex items-center justify-center rounded-lg\\'><p class=\\'text-white text-2xl\\'>Photo Coming Soon</p></div>'" />
+				</div>
+			`;
+		}
+
+		function nextImage() {
+			if (currentGallery && currentImageIndex < currentGallery.images.length - 1) {
+				currentImageIndex++;
+				showGalleryImage();
+			}
+		}
+
+		function prevImage() {
+			if (currentGallery && currentImageIndex > 0) {
+				currentImageIndex--;
+				showGalleryImage();
+			}
+		}
+
+		function closeGallery() {
+			const modal = document.getElementById('galleryModal');
+			modal.classList.add('hidden');
+			document.body.style.overflow = 'auto';
+			currentGallery = null;
+			currentImageIndex = 0;
+		}
+
+		// Make functions globally accessible
+		window.nextImage = nextImage;
+		window.prevImage = prevImage;
+		window.closeGallery = closeGallery;
+		window.openGallery = openGallery;
+		window.openGalleryAtIndex = openGalleryAtIndex;
+		window.showCountryGallery = showCountryGallery;
+
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				closeGallery();
+			} else if (e.key === 'ArrowRight') {
+				nextImage();
+			} else if (e.key === 'ArrowLeft') {
+				prevImage();
+			}
+		});
+
+		// Fetch GitHub repositories
+		async function loadGitHubRepos() {
+			const container = document.getElementById('githubRepos');
+			try {
+				const response = await fetch('https://api.github.com/users/javadhuseynli/repos?sort=updated&per_page=6');
+				if (!response.ok) throw new Error('Failed to fetch');
+
+				const repos = await response.json();
+
+				container.innerHTML = '';
+
+				repos.forEach(repo => {
+					const card = document.createElement('a');
+					card.href = repo.html_url;
+					card.target = '_blank';
+					card.className = 'bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1';
+
+					card.innerHTML = `
+						<div class="flex items-start justify-between mb-3">
+							<h3 class="text-xl font-bold text-gray-800 group-hover:text-[#00C853] transition-colors">${repo.name}</h3>
+							<svg class="w-5 h-5 text-gray-400 group-hover:text-[#00C853] transition-colors" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+							</svg>
+						</div>
+						<p class="text-gray-600 mb-4 text-sm line-clamp-2">${repo.description || 'No description available'}</p>
+						<div class="flex items-center gap-4 text-sm text-gray-500">
+							${repo.language ? `<span class="flex items-center gap-1">
+								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+									<circle cx="10" cy="10" r="3" fill="#00C853"/>
+								</svg>
+								${repo.language}
+							</span>` : ''}
+							<span class="flex items-center gap-1">
+								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+								</svg>
+								${repo.stargazers_count}
+							</span>
+							<span class="flex items-center gap-1">
+								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								${repo.forks_count}
+							</span>
+						</div>
+					`;
+
+					container.appendChild(card);
+				});
+			} catch (error) {
+				console.error('Error loading GitHub repos:', error);
+				container.innerHTML = `
+					<div class="col-span-full text-center py-8">
+						<p class="text-red-500 mb-4">Failed to load repositories. Please try again later.</p>
+						<a href="https://github.com/javadhuseynli" target="_blank" class="text-[#00C853] hover:underline">
+							Visit GitHub Profile Directly
+						</a>
+					</div>
+				`;
+			}
+		}
+
+		// Load GitHub repos on page load
+		loadGitHubRepos();
+
+		// Modern Scroll Animations
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '0px 0px -50px 0px'
+		};
+
+		const scrollObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('animate-in');
+				}
+			});
+		}, observerOptions);
+
+		// Observe all sections for scroll animations
+		document.querySelectorAll('section').forEach(el => {
+			el.classList.add('animate-on-scroll');
+			scrollObserver.observe(el);
+		});
+
+		// Parallax effect and navbar enhancement
+		let ticking = false;
+		window.addEventListener('scroll', () => {
+			if (!ticking) {
+				window.requestAnimationFrame(() => {
+					const scrolled = window.pageYOffset;
+
+					// Navbar scroll effect
+					const nav = document.querySelector('.fixed.top-0');
+					if (nav) {
+						if (scrolled > 50) {
+							nav.classList.add('shadow-xl');
+							nav.style.backdropFilter = 'blur(20px)';
+						} else {
+							nav.classList.remove('shadow-xl');
+							nav.style.backdropFilter = 'blur(10px)';
+						}
+					}
+
+					ticking = false;
+				});
+				ticking = true;
+			}
+		});
+
+		// Smooth scroll for navigation links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					const offsetTop = target.offsetTop - 80;
+					window.scrollTo({
+						top: offsetTop,
+						behavior: 'smooth'
+					});
+					const mobileMenu = document.getElementById('mobileMenu');
+					if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+						toggleMobileMenu();
+					}
+				}
+			});
+		});
+	</script>
+
+	<style>
+		.animate-on-scroll {
+			opacity: 0;
+			transform: translateY(40px);
+			transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.animate-in {
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes gradient-shift {
+			0%, 100% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+		}
+
+		@keyframes pulse-glow {
+			0%, 100% {
+				box-shadow: 0 0 20px rgba(0, 200, 83, 0.3);
+			}
+			50% {
+				box-shadow: 0 0 40px rgba(0, 200, 83, 0.6);
+			}
+		}
+
+		@keyframes scroll {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-50%);
+			}
+		}
+
+		.animate-scroll {
+			display: inline-block;
+			animation: scroll 20s linear infinite;
+		}
+
+		* {
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		a, button, [class*="cursor-pointer"] {
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		button:active {
+			transform: scale(0.96);
+		}
+
+		.gradient-text {
+			background: linear-gradient(135deg, #00C853, #FFD700, #4169E1);
+			background-size: 200% 200%;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			animation: gradient-shift 5s ease infinite;
+		}
+
+		.fixed.top-0 {
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		img {
+			transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.group:hover img {
+			transform: scale(1.05);
+		}
+
+		body {
+			animation: fadeInUp 0.6s ease-out;
+		}
+
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: linear-gradient(180deg, #00C853, #00B248);
+			border-radius: 10px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: linear-gradient(180deg, #00B248, #009939);
+		}
+
+		*:focus-visible {
+			outline: 2px solid #00C853;
+			outline-offset: 2px;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after {
+				animation-duration: 0.01ms !important;
+				animation-iteration-count: 1 !important;
+				transition-duration: 0.01ms !important;
+			}
+		}
+	</style>
+</body>
 </html>
