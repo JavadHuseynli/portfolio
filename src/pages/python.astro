@@ -1,0 +1,207 @@
+---
+import '../styles/global.css';
+const title = "Python Təlimləri - Javad Huseynli";
+---
+
+<!DOCTYPE html>
+<html lang="az">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Python proqramlaşdırma dili üzrə təlimlər, videolar və kurslar">
+	<title>{title}</title>
+</head>
+<body class="bg-[#E8F5E9] font-sans">
+	<!-- Navigation -->
+	<nav class="bg-[#E8F5E9] py-4 sticky top-0 z-50 shadow-sm">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center">
+				<div class="text-2xl font-bold">
+					<a href="/">
+						<span class="text-black">My</span><span class="text-[#00C853]">Portfolio</span>
+					</a>
+				</div>
+				<div class="hidden md:flex space-x-8 items-center overflow-x-auto">
+					<a href="/#about" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap">Haqqında</a>
+					<a href="/#projects" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap">Layihələr</a>
+					<a href="/#gallery" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap">Qalereya</a>
+					<a href="/python" class="text-[#00C853] font-semibold hover:text-[#00C853] transition whitespace-nowrap">Python Təlimləri</a>
+					<a href="/#certificates" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap">Sertifikatlar</a>
+					<a href="/#contact" class="text-gray-700 hover:text-[#00C853] transition whitespace-nowrap">Əlaqə</a>
+				</div>
+				<button class="md:hidden" onclick="toggleMobileMenu()">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</button>
+			</div>
+			<!-- Mobile Menu -->
+			<div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+				<div class="flex flex-col space-y-2">
+					<a href="/#about" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()">Haqqında</a>
+					<a href="/#projects" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()">Layihələr</a>
+					<a href="/#gallery" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()">Qalereya</a>
+					<a href="/python" class="text-[#00C853] font-semibold hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()">Python Təlimləri</a>
+					<a href="/#certificates" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()">Sertifikatlar</a>
+					<a href="/#contact" class="text-gray-700 hover:text-[#00C853] transition py-2" onclick="toggleMobileMenu()">Əlaqə</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="py-20 px-4">
+		<div class="max-w-7xl mx-auto text-center">
+			<h1 class="text-5xl font-bold mb-6">
+				<span class="text-black">Python</span> <span class="text-[#00C853]">Təlimləri</span>
+			</h1>
+			<p class="text-xl text-gray-700 mb-8">
+				Python proqramlaşdırma dili üzrə video dərslər və kurslar
+			</p>
+		</div>
+	</section>
+
+	<!-- Video Section -->
+	<section id="videos" class="py-16 px-4 bg-white">
+		<div class="max-w-7xl mx-auto">
+			<h2 class="text-4xl font-bold text-center mb-12">
+				<span class="text-black">Video</span> <span class="text-[#00C853]">Dərslər</span>
+			</h2>
+			<div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Video kartları buraya dinamik əlavə ediləcək -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Course Section -->
+	<section id="courses" class="py-16 px-4 bg-[#E8F5E9]">
+		<div class="max-w-7xl mx-auto">
+			<h2 class="text-4xl font-bold text-center mb-12">
+				<span class="text-black">Kurs</span> <span class="text-[#00C853]">Məlumatları</span>
+			</h2>
+			<div id="courseGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<!-- Kurs kartları buraya dinamik əlavə ediləcək -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="bg-gray-900 text-white py-12 px-4">
+		<div class="max-w-7xl mx-auto text-center">
+			<p class="text-gray-400">&copy; 2024 Javad Huseynli. Bütün hüquqlar qorunur.</p>
+		</div>
+	</footer>
+
+	<script is:inline>
+		// Mobile menu toggle
+		window.toggleMobileMenu = function() {
+			const mobileMenu = document.getElementById('mobileMenu');
+			if (mobileMenu) {
+				mobileMenu.classList.toggle('hidden');
+			}
+		};
+
+		// Video məlumatları (buraya öz videolarınızı əlavə edə bilərsiniz)
+		const videos = [
+			{
+				title: "Python Giriş - Dərs 1",
+				description: "Python proqramlaşdırma dilinə giriş",
+				thumbnail: "https://via.placeholder.com/400x225/00C853/ffffff?text=Python+D%C9%99rs+1",
+				videoUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID",
+				duration: "15:30"
+			},
+			// Daha çox video əlavə edə bilərsiniz
+		];
+
+		// Kurs məlumatları (buraya öz kurslarınızı əlavə edə bilərsiniz)
+		const courses = [
+			{
+				title: "Python Əsasları",
+				description: "Python proqramlaşdırma dilinin əsaslarını öyrənin. Bu kurs yeni başlayanlar üçün nəzərdə tutulub.",
+				level: "Başlanğıc",
+				duration: "20 saat",
+				lessons: 25,
+				price: "Pulsuz",
+				image: "https://via.placeholder.com/500x300/00C853/ffffff?text=Python+%C6%8Fsaslar%C4%B1"
+			},
+			// Daha çox kurs əlavə edə bilərsiniz
+		];
+
+		// Video kartlarını render et
+		function renderVideos() {
+			const videoGrid = document.getElementById('videoGrid');
+			if (!videoGrid) return;
+
+			if (videos.length === 0) {
+				videoGrid.innerHTML = `
+					<div class="col-span-full text-center py-12">
+						<p class="text-gray-600 text-lg">Hələlik video yoxdur. Tezliklə yeni videolar əlavə ediləcək.</p>
+					</div>
+				`;
+				return;
+			}
+
+			videoGrid.innerHTML = videos.map(video => `
+				<div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+					<div class="relative">
+						<img src="${video.thumbnail}" alt="${video.title}" class="w-full h-48 object-cover">
+						<div class="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+							${video.duration}
+						</div>
+					</div>
+					<div class="p-6">
+						<h3 class="text-xl font-bold mb-2 text-gray-900">${video.title}</h3>
+						<p class="text-gray-600 mb-4">${video.description}</p>
+						<a href="${video.videoUrl}" target="_blank" rel="noopener noreferrer"
+							class="inline-block bg-[#00C853] text-white px-6 py-2 rounded-lg hover:bg-[#00A843] transition">
+							İzlə
+						</a>
+					</div>
+				</div>
+			`).join('');
+		}
+
+		// Kurs kartlarını render et
+		function renderCourses() {
+			const courseGrid = document.getElementById('courseGrid');
+			if (!courseGrid) return;
+
+			if (courses.length === 0) {
+				courseGrid.innerHTML = `
+					<div class="col-span-full text-center py-12">
+						<p class="text-gray-600 text-lg">Hələlik kurs məlumatı yoxdur. Tezliklə yeni kurslar əlavə ediləcək.</p>
+					</div>
+				`;
+				return;
+			}
+
+			courseGrid.innerHTML = courses.map(course => `
+				<div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+					<img src="${course.image}" alt="${course.title}" class="w-full h-48 object-cover">
+					<div class="p-6">
+						<div class="flex items-center justify-between mb-3">
+							<span class="bg-[#00C853] text-white px-3 py-1 rounded-full text-sm">${course.level}</span>
+							<span class="text-[#00C853] font-bold text-lg">${course.price}</span>
+						</div>
+						<h3 class="text-2xl font-bold mb-3 text-gray-900">${course.title}</h3>
+						<p class="text-gray-600 mb-4">${course.description}</p>
+						<div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+							<span>📚 ${course.lessons} dərs</span>
+							<span>⏱️ ${course.duration}</span>
+						</div>
+						<button class="w-full bg-[#00C853] text-white px-6 py-3 rounded-lg hover:bg-[#00A843] transition font-semibold">
+							Kursa Qeydiyyat
+						</button>
+					</div>
+				</div>
+			`).join('');
+		}
+
+		// Səhifə yükləndikdə render et
+		document.addEventListener('DOMContentLoaded', function() {
+			renderVideos();
+			renderCourses();
+		});
+	</script>
+</body>
+</html>
