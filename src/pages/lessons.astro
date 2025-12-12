@@ -337,7 +337,7 @@ const title = "Təlimlər - Javad Huseynli";
 
 		// Language change function
 		window.changeLanguage = function(lang) {
-			localStorage.setItem('selectedLanguage', lang);
+			localStorage.setItem('preferredLanguage', lang);
 			updateLanguage(lang);
 			document.getElementById('currentLang').textContent = lang.toUpperCase();
 
@@ -345,6 +345,12 @@ const title = "Təlimlər - Javad Huseynli";
 			const languageMenu = document.getElementById('languageMenu');
 			if (languageMenu) {
 				languageMenu.classList.add('hidden');
+			}
+
+			// Close mobile menu if open
+			const mobileMenu = document.getElementById('mobileMenu');
+			if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+				mobileMenu.classList.add('hidden');
 			}
 
 			// Re-render content with new language
@@ -449,7 +455,7 @@ const title = "Təlimlər - Javad Huseynli";
 			if (!grid) return;
 
 			const videos = data[category]?.videos || [];
-			const currentLang = localStorage.getItem('selectedLanguage') || 'az';
+			const currentLang = localStorage.getItem('preferredLanguage') || 'az';
 
 			if (videos.length === 0) {
 				grid.innerHTML = `
@@ -486,7 +492,7 @@ const title = "Təlimlər - Javad Huseynli";
 			if (!grid) return;
 
 			const courses = data[category]?.courses || [];
-			const currentLang = localStorage.getItem('selectedLanguage') || 'az';
+			const currentLang = localStorage.getItem('preferredLanguage') || 'az';
 
 			if (courses.length === 0) {
 				grid.innerHTML = `
@@ -525,7 +531,7 @@ const title = "Təlimlər - Javad Huseynli";
 			if (!grid) return;
 
 			const posters = data.posters || [];
-			const currentLang = localStorage.getItem('selectedLanguage') || 'az';
+			const currentLang = localStorage.getItem('preferredLanguage') || 'az';
 
 			if (posters.length === 0) {
 				grid.innerHTML = `
@@ -580,7 +586,7 @@ const title = "Təlimlər - Javad Huseynli";
 		// Initialize
 		document.addEventListener('DOMContentLoaded', function() {
 			// Load saved language
-			const savedLang = localStorage.getItem('selectedLanguage') || 'az';
+			const savedLang = localStorage.getItem('preferredLanguage') || 'az';
 			updateLanguage(savedLang);
 			document.getElementById('currentLang').textContent = savedLang.toUpperCase();
 
